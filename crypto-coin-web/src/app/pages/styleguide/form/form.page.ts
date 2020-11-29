@@ -22,9 +22,7 @@ export class FormPage implements OnInit {
         number: new FormControl(''),
         email: new FormControl(''),
         password: new FormControl(''),
-        radio: new FormControl(''),
         icon: new FormControl(''),
-        selects: new FormControl('')
     });
 
     constructor() { }

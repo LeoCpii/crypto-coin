@@ -1,0 +1,31 @@
+<div class="root" [@initial]="animate">
+    <div class="close-icon">
+        <button (click)="back()" mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="conatiner">
+        <div class="left">
+            <div class="left-content">
+                <div class="title">Esqueceu sua senha?</div>
+                <div class="subscription">
+                    Não se preocupe, vamos enviar uma mensagem para você redefinir sua senha.
+                </div>
+                <form [formGroup]="form" (submit)="forgot()">
+                    <div class="input">
+                        <app-input [control]="form.controls.email" formControlName="email" label="Email" type="email"
+                            [required]="true"></app-input>
+                    </div>
+
+                    <app-button type="submit" label="Enviar email" [fullWidth]="true" [disabled]="!form.valid">
+                    </app-button>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image-container">
+                <img [src]="images.forgot" alt="">
+            </div>
+        </div>
+    </div>
+</div>

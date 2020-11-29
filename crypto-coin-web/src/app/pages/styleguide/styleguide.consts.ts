@@ -24,10 +24,10 @@ export const PAGES: IButtonPage[] = [
     //     label: 'Icon',
     //     route: '/styleguide/icon',
     // },
-    // {
-    //     label: 'Form',
-    //     route: '/styleguide/form',
-    // },
+    {
+        label: 'Form',
+        route: '/styleguide/form',
+    },
     {
         label: 'Pipe',
         route: '/styleguide/pipe',

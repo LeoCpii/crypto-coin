@@ -26,6 +26,12 @@ export const SECTION: ISection[] = [
                 theme: 'outline'
             },
             {
+                label: 'Outline Light',
+                disabled: false,
+                isLoading: false,
+                theme: 'outline-light'
+            },
+            {
                 label: 'No Border',
                 disabled: false,
                 isLoading: false,
@@ -48,6 +54,12 @@ export const SECTION: ISection[] = [
                 theme: 'outline'
             },
             {
+                label: 'Outline Light',
+                disabled: true,
+                isLoading: false,
+                theme: 'outline-light'
+            },
+            {
                 label: 'No Border',
                 disabled: true,
                 isLoading: false,
@@ -68,6 +80,12 @@ export const SECTION: ISection[] = [
                 disabled: false,
                 isLoading: true,
                 theme: 'outline'
+            },
+            {
+                label: 'Outline Light',
+                disabled: false,
+                isLoading: true,
+                theme: 'outline-light'
             },
             {
                 label: 'No Border',

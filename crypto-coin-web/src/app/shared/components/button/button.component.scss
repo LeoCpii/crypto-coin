@@ -10,6 +10,7 @@ button {
     border-radius: 3px;
     cursor: pointer;
     position: relative;
+    text-transform: uppercase;
 
     &:focus {
         outline: 0;
@@ -54,8 +55,18 @@ button {
 
     &.no-border {
         background-color: transparent;
-        color: $blue;
+        color: $primary;
         border-color: transparent;
+
+        &:disabled {
+            background-color: transparent !important;
+        }
+    }
+
+    &.outline-light {
+        background-color: transparent;
+        color: $white;
+        border-color: $primary;
 
         &:disabled {
             background-color: transparent !important;

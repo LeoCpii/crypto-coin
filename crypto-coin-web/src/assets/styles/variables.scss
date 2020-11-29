@@ -8,18 +8,24 @@ $yellow: #f9cc54;
 $blue: #457ff0;
 $blue--light: #EBF0F8;
 $grey: #666666;
+$grey--light: #E0E2E6;
+$grey--dark: #20252A;
 $color-link: #3171ef;
 $color-link-hover: #2d61c3;
 
 /* FONT FAMILY */
 $font-sans-serif: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $font-serif: "Freight", "Georgia", serif;
+$font-regular: "gibson" !important;
+$font-bold: "gibson-bold" !important;
+$font-semi-bold: "gibson-semi-bold" !important;
+$font-crypto-coin: "unica-one" !important;
 
 /* FONT WEIGHT */
-$font-light: 300;
-$font-regular: 400;
-$font-medium: 600;
-$font-bold: 700;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 600;
+$weight-bold: 700;
 
 /* GRID SYSTEM */
 $grid-columns: 12;

@@ -1,0 +1,36 @@
+<div class="root">
+    <div class="close-icon">
+        <button (click)="back()" mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="conatiner">
+        <div class="left">
+            <div class="left-content">
+                <div class="title">Vamos criar sua conta</div>
+                <form [formGroup]="form" (submit)="create()">
+                    <ng-container *ngIf="inputs.length">
+                        <div [@listAnimation]="inputs.length">
+                            <ng-container *ngFor="let input of inputs">
+                                <div class="input">
+                                    <app-input [control]="form.controls[input.control]"
+                                        [formControlName]="input.control" [label]="input.label" [type]="input.type"
+                                        [required]="input.required">
+                                    </app-input>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                    <div class="requirement">
+                        <p>Sua senha deve conter:</p>
+                        <app-password-requirements [form]="form"></app-password-requirements>
+                    </div>
+                    <app-button type="submit" label="Criar conta" [fullWidth]="true" [disabled]="!form.valid">
+                    </app-button>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+</div>

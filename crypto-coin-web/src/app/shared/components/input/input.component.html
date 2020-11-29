@@ -1,0 +1,22 @@
+<div class="container-field" [class.container-field--noMargin]="noMargin">
+    <div class="content-field">
+        <div class="field" [class.field--invalid]="shouldDisplayError()" [ngClass]="getClass()">
+            <div class="field-float">
+                <input #input matInput [type]="getType" [mask]="mask"
+                    [formControl]="control" (input)="onChange($event.target.value)" (blur)="onBlur($event.target.value)"
+                    [decimalMarker]="separator" [placeholder]="placeholder" [disabled]="disabled" [required]="required">
+                <label>{{ label }} <ng-container *ngIf="required"> *</ng-container> </label>
+            </div>
+            <button type="button" *ngIf="shouldDisplayEye" mat-icon-button matSuffix (click)="toggleDisplayPassword()"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="show">
+                <mat-icon class="color-icon" color="primary">{{ icon }}</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="info" class="info">
+            <mat-icon [matTooltip]="info">help</mat-icon>
+        </div>
+    </div>
+
+    <div class="feedback-error" [class.feedback-error--active]="shouldDisplayError()">
+        {{ getErrorMessage() || messageError }}</div>
+</div>

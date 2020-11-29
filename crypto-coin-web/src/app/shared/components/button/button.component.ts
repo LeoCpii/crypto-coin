@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-type TypeThemes = 'primary' | 'outline' | 'no-border';
+type TypeThemes = 'primary' | 'outline' | 'no-border' | 'outline-light';
 
 @Component({
     selector: 'app-button',

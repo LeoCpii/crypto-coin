@@ -9,9 +9,10 @@ import { ComponentsModule } from './components/components.module';
 
 // Directive
 import { SafeValueDirective } from './directives/safe-value.directive';
-import { MoneyPipe } from './pipes/money.pipe';
+import { ResizeDirective } from './directives/resize.directive';
 
 // Pipes
+import { MoneyPipe } from './pipes/money.pipe';
 
 const SERVICES = [];
 
@@ -19,7 +20,7 @@ const LIBS = [];
 
 const GUARDS = [];
 
-const DIRECTIVES = [SafeValueDirective];
+const DIRECTIVES = [SafeValueDirective, ResizeDirective];
 
 const PIPES = [MoneyPipe];
 

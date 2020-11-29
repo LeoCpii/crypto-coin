@@ -1,0 +1,82 @@
+@import "includes";
+
+.root {
+    height: 100%;
+    position: relative;
+
+    .close-icon {
+        position: absolute;
+        @include z-index('space');
+        right: 30px;
+        top: 30px;
+
+        button {
+            color: $grey;
+        }
+    }
+
+    .conatiner {
+        @include grid;
+        height: 100%;
+
+        .left,
+        .right {
+            @include grid-column-span(6);
+
+            @include for-large-tablet {
+                @include grid-column-span(12);
+            }
+        }
+
+        .left {
+            @include center;
+            width: 100%;
+            background-color: $grey--dark;
+            padding: 120px;
+
+            @include for-mobile {
+                padding: 15px;
+            }
+
+            .left-content {
+                width: 100%;
+
+                .title {
+                    @include page-title;
+                    font-size: 3rem;
+                    color: $white;
+                }
+
+                .subscription {
+                    @include text;
+                    color: $white;
+                    font-weight: $weight-light;
+                    margin-bottom: 30px;
+
+                    @include for-tablet {
+                        font-size: 14px;
+                    }
+                }
+
+                form {
+                    .input {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+        .right {
+            @include center;
+            border-right: 1px solid #e9e9e9;
+
+            @include for-large-tablet {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

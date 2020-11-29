@@ -1,0 +1,32 @@
+<div class="root" [@initial]="animate">
+    <div class="conatiner">
+        <div class="left">
+            <div class="image-container">
+                <img [src]="images.revenue" alt="">
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-content">
+                <div class="title">Bem vindo ao <span>Crypto Coin</span> !</div>
+                <form [formGroup]="form" (submit)="login()">
+                    <div class="input">
+                        <app-input [control]="form.controls.email" formControlName="email" label="Email" type="email"
+                            [required]="true"></app-input>
+                    </div>
+
+                    <div class="input">
+                        <app-input [control]="form.controls.password" formControlName="password" label="Senha"
+                            type="password" [required]="true"></app-input>
+                    </div>
+                    
+                    <div class="forgot" (click)="forgot()">Esqueceu sua senha?</div>
+
+                    <app-button type="submit" label="Entrar" [fullWidth]="true" [disabled]="!form.valid"></app-button>
+                </form>
+                <div class="create">Não possui conta?</div>
+
+                <app-button (clickEvent)="create()" label="Criar Conta" theme="outline-light" [fullWidth]="true"></app-button>
+            </div>
+        </div>
+    </div>
+</div>
