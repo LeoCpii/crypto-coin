@@ -1,0 +1,41 @@
+<div class="root">
+    <div class="container">
+        <div class="item">
+            <h3 class="title">Typography</h3>
+
+            <div *ngIf="show" [@listAnimation]="types.length" class="container-typography">
+                <div class="typography" *ngFor="let item of types">
+
+                    <ng-container *ngIf="item.name === 'header-title'">
+                        <div class="header-title">{{ item.name }}</div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.name === 'page-title'">
+                        <div class="page-title">{{ item.name }}</div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.name === 'page-sub-title'">
+                        <div class="page-sub-title">{{ item.name }}</div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.name === 'text'">
+                        <div class="text">{{ item.name }}</div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.name === 'link-external'">
+                        <app-link [link]="item.link">{{ item.name }}</app-link>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.name === 'link-internal'">
+                        <app-link [link]="item.link">{{ item.name }}</app-link>
+                    </ng-container>
+
+                    <div class="description">{{ item.description }}</div>
+                    <pre>
+                        {{ item.usage }}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

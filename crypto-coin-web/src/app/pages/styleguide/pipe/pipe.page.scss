@@ -1,0 +1,31 @@
+@import "includes";
+
+.root {
+    min-height: calc(100vh - 32px);
+    padding: 30px 0px;
+    margin-bottom: 60px;
+
+    .item {
+        .title {
+            @include page-title;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+            padding: 5px 0px;
+        }
+
+        .sub-title {
+            @include page-sub-title;
+        }
+    }
+
+    pre {
+        margin: 0px;
+        white-space: inherit;
+        background: #f1f1f1;
+        padding: 15px;
+        border-radius: 3px;
+    }
+
+    .section-pipe {
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,90 @@
+@import "includes";
+
+button {
+    min-width: 200px;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:active {
+        filter: brightness(90%);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+        opacity: 0.5;
+        box-shadow: none;
+    }
+
+    &.isLoading {
+        opacity: 0.5;
+        cursor: no-drop;
+        filter: none !important;
+    }
+
+    &.primary {
+        background-color: $primary;
+        color: $white;
+
+        &:disabled {
+            background-color: $primary !important;
+            color: $white;
+        }
+    }
+
+    &.outline {
+        background-color: transparent;
+        color: $primary;
+        border-color: $primary;
+
+        &:disabled {
+            color: $primary;
+            background-color: transparent !important;
+        }
+    }
+
+    &.no-border {
+        background-color: transparent;
+        color: $blue;
+        border-color: transparent;
+
+        &:disabled {
+            background-color: transparent !important;
+        }
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+
+    &.full-width[type="submit"] {
+        width: 100%;
+    }
+
+    .label-loading {
+        margin-left: 10px;
+    }
+}
+
+.container-loading {
+    @include center;
+
+    .loading {
+        height: 2rem;
+        width: 2rem;
+
+        ::ng-deep svg {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+}

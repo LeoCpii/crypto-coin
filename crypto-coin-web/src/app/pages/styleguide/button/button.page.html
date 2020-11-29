@@ -1,0 +1,17 @@
+<div class="root">
+    <div class="item">
+        <h3 class="title">Buttons</h3>
+
+        <section *ngIf="show" [@listAnimation]="sections.length">
+            <ng-container *ngFor="let section of sections">
+                <div class="section">
+                    <h5 class="sub-title">{{ section.title }}</h5>
+                    <div class="grid">
+                        <app-button *ngFor="let button of section.buttons" [label]="button.label" [theme]="button.theme"
+                            [disabled]="button.disabled" [isLoading]="button.isLoading"></app-button>
+                    </div>
+                </div>
+            </ng-container>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+@import "includes";
+
+.root {
+    height: 100%;
+
+    .wrapper {
+        display: flex;
+        align-items: stretch;
+    }
+
+    #sidebar {
+        // @include z-index("medium");
+        background: $white;
+        padding: 30px 15px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        width: 200px;
+
+        &.active {
+            width: 215px;
+        }
+
+        &.deactive {
+            width: 52px;
+
+            .button--menu {
+                label {
+                    display: none;
+                }
+            }
+        }
+
+        input {
+            border: none;
+            background: #e9e9e9;
+            padding: 10px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 30px;
+        }
+
+        .menu {
+            padding: 15px;
+        }
+
+        .button--menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background: $white;
+            color: $grey;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s $ease-in-out;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            label {
+                margin-left: 5px;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+
+            &--active {
+                background: $primary;
+                color: $white;
+
+                &:hover {
+                    background: $primary;
+                }
+            }
+        }
+
+        .container-loading {
+            height: 100px;
+        }
+    }
+
+    #content {
+        transition: all 0.3s;
+        padding: 0px 30px;
+        width: 100%;
+    }
+}

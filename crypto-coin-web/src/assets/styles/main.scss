@@ -1,0 +1,27 @@
+@import "includes";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+button,
+label,
+span,
+th,
+tr,
+td,
+.text {
+    font-family: $font-sans-serif;
+}

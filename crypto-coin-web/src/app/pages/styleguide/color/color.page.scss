@@ -1,0 +1,79 @@
+@import "includes";
+
+.root {
+    min-height: calc(100vh - 32px);
+    padding: 30px 0px;
+
+    .container {
+        .item {
+            .title {
+                @include page-title;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+                padding: 5px 0px;
+            }
+        }
+    }
+
+    .container-color {
+        @include start;
+        cursor: pointer;
+        transition: all 0.2s $ease-in-out;
+        margin-bottom: 10px;
+
+        &:hover {
+            transform: scale(1.01);
+        }
+
+        .name,
+        .hex {
+            margin: 0px;
+            margin-left: 15px;
+        }
+
+        .color {
+            padding: 20px;
+            border-radius: 50px;
+            width: fit-content;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+
+            &--primary {
+                background-color: $primary;
+            }
+
+            &--white {
+                background-color: $white;
+            }
+
+            &--off-white {
+                background-color: $off-white;
+            }
+
+            &--green {
+                background-color: $green;
+            }
+
+            &--red {
+                background-color: $red;
+            }
+
+            &--yellow {
+                background-color: $yellow;
+            }
+
+            &--blue {
+                background-color: $blue;
+            }
+
+            &--grey {
+                background-color: $grey;
+            }
+        }
+
+        .hex {
+            font-size: 12px;
+            color: $grey;
+            font-style: italic;
+            text-align: right;
+        }
+    }
+}

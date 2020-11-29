@@ -1,0 +1,33 @@
+<div class="root" [@initial]="animate">
+    <div class="wrapper">
+        <div #sidebar id="sidebar">
+            <div class="sticky">
+                <input (input)="search($event)" type="text" placeholder="Buscar...">
+
+                <ng-container *ngIf="!searching && !noData">
+                    <div [@listAnimation]="select.length">
+                        <div *ngFor="let page of select" [routerLink]="page.route"
+                            routerLinkActive="button--menu--active" class="button--menu">
+                            <label>{{ page.label }}</label>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="searching">
+                    <div class="container-loading">
+                        <!-- <app-loading class="loading" [size]="1.7"></app-loading> -->
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="!searching && noData">
+                    <!-- <app-text>
+                        Nenhuma página encontrada
+                    </app-text> -->
+                </ng-container>
+            </div>
+        </div>
+        <div id="content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

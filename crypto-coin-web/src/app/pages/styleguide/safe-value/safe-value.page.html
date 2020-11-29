@@ -1,0 +1,40 @@
+<div class="root">
+    <div class="title-container">
+        <h3 class="title">Safe Value</h3>
+        <app-button (clickEvent)="toggle()" [label]="label" theme="no-border"></app-button>
+    </div>
+
+    <pre>{{ usage }}</pre>
+
+    <section>
+        <div class="container-item" [@listAnimation]="items.length">
+            <div class="item" *ngFor="let item of items">
+                <app-item [label]="item.label">
+                    <ng-container *ngIf="item.type === 'standard'">
+                        <div class="value">{{ item.value || '-' }}</div>
+                    </ng-container>
+                    <ng-container *ngIf="item.type === 'currency'">
+                        <div safe-value class="value">{{ item.value || '-' | money }}</div>
+                    </ng-container>
+                    <ng-container *ngIf="item.type === 'percent'">
+                        <div class="value">{{ item.value || '-' | percent  }}</div>
+                    </ng-container>
+                </app-item>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="card">
+            <div class="title">Previdência</div>
+            <div class="content">
+                <app-item label="Saldo">
+                    <div safe-value> {{ 150 | money }} </div>
+                </app-item>
+                <app-item label="Total">
+                    <div safe-value>10 Coins</div>
+                </app-item>
+            </div>
+        </div>
+    </section>
+</div>

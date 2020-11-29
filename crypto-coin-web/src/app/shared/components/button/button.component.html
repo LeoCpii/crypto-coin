@@ -1,0 +1,11 @@
+<button mat-flat-button (click)="emitClick()" [type]="type" [disabled]="disabled" [ngClass]="getClass()"
+    [class.isLoading]="isLoading">
+    <ng-container *ngIf="!isLoading">
+        {{ label }}
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+        <div class="container-loading">
+            <app-loading class="loading" [size]="1.7" [theme]="loadingTheme"></app-loading>
+        </div>
+    </ng-container>
+</button>

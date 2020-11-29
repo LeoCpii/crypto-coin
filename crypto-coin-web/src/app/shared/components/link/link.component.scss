@@ -1,0 +1,5 @@
+@import 'includes';
+
+.link {
+    @include link;
+}

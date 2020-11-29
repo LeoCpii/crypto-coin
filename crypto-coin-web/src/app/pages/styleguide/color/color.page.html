@@ -1,0 +1,17 @@
+<div class="root">
+    <div class="container">
+        <div class="item">
+            <h3 class="title">Color Palette</h3>
+
+            <div *ngIf="show" [@listAnimation]="colors.length">
+                <ng-container *ngFor="let color of colors">
+                    <div (click)="clip(color)" class="container-color">
+                        <div class="color" [ngClass]="getClass(color.name)"></div>
+                        <h4 class="name">{{ color.name }}</h4>
+                        <span class="hex">{{ color.hex }}</span>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

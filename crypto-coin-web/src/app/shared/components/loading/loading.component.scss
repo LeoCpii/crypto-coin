@@ -1,0 +1,29 @@
+@import "includes";
+
+.root {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -35%);
+}
+
+.loading {
+  animation: rotate 0.6s linear infinite;
+}
+
+.primary {
+  fill: $primary;
+}
+
+.light {
+  fill: $white;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

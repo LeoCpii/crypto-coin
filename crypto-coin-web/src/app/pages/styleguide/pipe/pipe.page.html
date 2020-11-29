@@ -1,0 +1,22 @@
+<div class="root">
+    <div class="item">
+        <h3 class="title">Pipe</h3>
+
+        <section [@listAnimation]="pipes.length">
+            <ng-container *ngFor="let pipe of pipes">
+                <div class="section-pipe">
+                    <h5 class="sub-title">{{ pipe.name }}:</h5>
+
+                    <div>
+                        <p *ngIf="pipe.type === 'money'">{{ pipe.value | money }}</p>
+                        <p *ngIf="pipe.type === 'date'">{{ pipe.value | date:"MM/dd/yyyy" }}</p>
+                        <p *ngIf="pipe.type === 'percent'">{{ pipe.value | percent }}</p>
+                        <pre>
+                            {{ pipe.usage }}
+                        </pre>
+                    </div>
+                </div>
+            </ng-container>
+        </section>
+    </div>
+</div>

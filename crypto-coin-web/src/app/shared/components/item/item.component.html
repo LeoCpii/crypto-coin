@@ -1,0 +1,24 @@
+<div class="item">
+  <div class="label">{{ label }}</div>
+  <!-- <ng-container *ngIf="type === 'standard'">
+    <div class="value">{{ value || '-' }}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'currency'">
+    <div safe-value class="value">{{ value || '-' | money }}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'cpf'">
+    <div class="value">{{ value || '-' | cpf }}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'cnpj'">
+    <div class="value">{{ value || '-' | cnpj }}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'account'">
+    <div class="value">{{ value || '-' | account }}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'percent'">
+    <div class="value">{{ value || '-' | percent  }}</div>
+  </ng-container> -->
+  <div class="value">
+    <ng-content></ng-content>
+  </div>
+</div>

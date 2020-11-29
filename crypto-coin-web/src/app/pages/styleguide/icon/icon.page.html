@@ -1,0 +1,57 @@
+<div class="root">
+    <div class="title-container">
+        <h3 class="title">Icon</h3>
+        <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Mais Icones</a>
+    </div>
+
+    <section [@listAnimation]="sections.length">
+        <ng-container *ngFor="let section of sections">
+            <h5 class="sub-title">{{ section.name }}</h5>
+
+            <div class="grid">
+                <ng-container *ngFor="let icon of section.icons">
+                    <!-- <app-icon class="icon" [icon]="icon" [spinner]="section.spinner"></app-icon> -->
+                </ng-container>
+            </div>
+        </ng-container>
+    </section>
+
+    <section>
+        <h5 class="sub-title">Risk</h5>
+        <div class="grid" [@listAnimation]="risks.length">
+            <ng-container *ngFor="let risk of risks; let i = index">
+                <!-- <app-risk *ngIf="i !== 0" [risk]="risk"></app-risk> -->
+            </ng-container>
+        </div>
+    </section>
+
+    <section>
+        <h5 class="sub-title">Loading</h5>
+
+        <div class="grid" [@listAnimation]="loadings.length">
+            <ng-container *ngFor="let loading of loadings; let i = index">
+                <div class="theme" [ngClass]="getTheme(loading.theme)">
+                    <!-- <app-loading class="loading" [theme]="loading.theme"></app-loading> -->
+                </div>
+            </ng-container>
+        </div>
+    </section>
+
+    <section>
+        <h5 class="sub-title">SVG</h5>
+        <div class="grid" [@listAnimation]="svgs.length">
+            <ng-container *ngFor="let svg of svgs">
+                <!-- <app-svg [svg]="svg.type"></app-svg> -->
+            </ng-container>
+        </div>
+    </section>
+
+    <section>
+        <h5 class="sub-title">SVG Sizes</h5>
+        <div class="grid" [@listAnimation]="svgSizes.length">
+            <ng-container *ngFor="let svg of svgSizes">
+                <!-- <app-svg [svg]="svg.type" [size]="svg.size"></app-svg> -->
+            </ng-container>
+        </div>
+    </section>
+</div>

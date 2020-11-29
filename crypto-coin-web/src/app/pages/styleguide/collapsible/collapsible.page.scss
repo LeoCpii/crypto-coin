@@ -1,0 +1,31 @@
+@import "includes";
+
+.root {
+    min-height: calc(100vh - 32px);
+    padding: 30px 0px;
+
+    .title {
+        @include page-title;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+        padding: 5px 0px;
+    }
+
+    .container {
+        background-color: $primary;
+
+        .title-collpasible {
+            @include text;
+            color: $white;
+        }
+
+        .content {
+            @include grid();
+
+            .item {
+                @include grid-column-span(6);
+                @include text;
+                color: $white;
+            }
+        }
+    }
+}

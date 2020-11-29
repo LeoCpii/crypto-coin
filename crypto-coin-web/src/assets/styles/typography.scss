@@ -1,0 +1,61 @@
+@mixin header-title {
+  // font-family: var(--font-theme);
+  font-size: 5.5rem;
+  font-weight: $font-light;
+  line-height: 1;
+
+  @include for-large-tablet {
+    font-size: 3.3rem;
+  }
+}
+
+@mixin page-title {
+  font-family: $font-sans-serif;
+  font-size: 2rem;
+  font-weight: $font-medium;
+  letter-spacing: -0.05rem;
+  line-height: 1.3;
+
+  @include for-large-tablet {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin page-sub-title {
+  font-family: $font-sans-serif;
+  font-size: 1rem;
+  font-weight: $font-medium;
+  line-height: 1.5;
+}
+
+@mixin text {
+  font-family: $font-sans-serif;
+  font-size: 1.23rem;
+  -webkit-font-smoothing: auto;
+  font-weight: $font-light;
+  line-height: 1.33;
+}
+
+@mixin description {
+  font-family: $font-sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: auto;
+  font-weight: $font-light;
+  color: $grey;
+  line-height: 1.33;
+}
+
+@mixin link {
+  @include text;
+
+  letter-spacing: 0rem;
+  color: $color-link;
+  -webkit-font-smoothing: auto;
+  transition: color $duration-short $ease-default;
+
+  cursor: pointer;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}

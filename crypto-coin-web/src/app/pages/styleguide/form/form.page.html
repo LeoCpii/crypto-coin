@@ -1,0 +1,35 @@
+<div class="root">
+    <div class="item">
+        <h3 class="title">Form</h3>
+
+        <form [formGroup]="form" [@listAnimation]="inputs.length">
+            <ng-container *ngFor="let input of inputs">
+                <div class="input">
+                    <!-- <app-input [control]="form.controls[input.control]" [formControlName]="input.control"
+                        [type]="input.type" [required]="input.required" [disabled]="input.disabled"
+                        [label]="input.label" [icon]="input.icon">
+                    </app-input> -->
+                </div>
+            </ng-container>
+
+            <div class="input">
+                <!-- <app-input-radio-group [control]="form.controls.radio" label="Radio Group" formControlName="radio"
+                    [radioGroup]="radios" [required]="true">
+                </app-input-radio-group> -->
+            </div>
+
+            <div class="input">
+                <!-- <app-input-select formControlName="selects" [data]="selects" label="Select" keyLabel="label"
+                    keyValue="value">
+                </app-input-select> -->
+            </div>
+
+            <div class="button">
+                <!-- <app-button label="Submit" [disabled]="!form.valid"></app-button> -->
+            </div>
+        </form>
+
+
+        <!-- <app-form-log [form]="form"></app-form-log> -->
+    </div>
+</div>

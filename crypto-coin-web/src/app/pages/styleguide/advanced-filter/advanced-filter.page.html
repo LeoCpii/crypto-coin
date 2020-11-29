@@ -1,0 +1,41 @@
+<div class="root">
+    <div class="title-container">
+        <h3 class="title">Advanced Filter</h3>
+    </div>
+<!-- 
+    <app-filter [fields]="buttons" [data]="data" propSearch="name" (filter)="filter($event)" (clean)="clean()">
+    </app-filter> -->
+
+    <div class="list">
+        <div class="header">
+            <div class="col col--bold col--left col--small">Risco</div>
+            <div class="col col--bold col--left">Nome do Fundo</div>
+            <div class="col col--bold col--right">Contribuição mensal</div>
+            <div class="col col--bold">Aporte único</div>
+            <div class="col col--bold">Taxa Adm</div>
+        </div>
+
+        <ng-container *ngIf="!loading">
+            <div [@listAnimation]="filtered.length">
+                <ng-container *ngFor="let row of filtered">
+                    <div class="row">
+                        <div class="col col--left col--small">
+                            <!-- <app-risk [risk]="row.risco"></app-risk> -->
+                        </div>
+                        <div class="col col--left">
+                            <!-- <app-item [label]="row.fundo.tipo" [value]="row.fundo.nome"></app-item> -->
+                        </div>
+                        <div class="col col--right">{{ row.contribuicao | currency: 'BRL':'symbol':'1.2-2':'pt'}}</div>
+                        <div class="col">{{ row.aporte | currency: 'BRL':'symbol':'1.2-2':'pt'}}</div>
+                        <div class="col">{{ row.taxa }}</div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="loading">
+            carregando...
+        </ng-container>
+
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="root">
+    <h3 class="title">Item</h3>
+
+    <div class="container-item" [@listAnimation]="items.length">
+        <div class="item" *ngFor="let item of items">
+            <app-item [label]="item.label">
+                <ng-container *ngIf="item.type === 'standard'">
+                    <div class="value">{{ item.value || '-' }}</div>
+                </ng-container>
+                <ng-container *ngIf="item.type === 'currency'">
+                    <div safe-value class="value">{{ item.value || '-' | money }}</div>
+                </ng-container>
+                <ng-container *ngIf="item.type === 'percent'">
+                    <div class="value">{{ item.value || '-' | percent  }}</div>
+                </ng-container>
+            </app-item>
+        </div>
+    </div>
+</div>
