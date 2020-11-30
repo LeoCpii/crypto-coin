@@ -6,9 +6,13 @@
 
     .close-icon {
         position: absolute;
-        @include z-index('space');
+        @include z-index("space");
         right: 30px;
         top: 30px;
+
+        @include for-mobile {
+            right: 5px;
+        }
 
         button {
             color: $grey;
@@ -55,6 +59,10 @@
 
                     @include for-tablet {
                         font-size: 14px;
+                    }
+
+                    span {
+                        color: $primary;
                     }
                 }
 

@@ -1,0 +1,70 @@
+@import 'includes';
+
+
+.content {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    > .avatar {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #F1F1F1;
+        color: $primary;
+        border-radius: 100%;
+        border: 1px solid rgba(0,0,0,0.05);
+
+        &.background {
+            background: hsla(180,0%,50%,0.25);
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+
+        &.tiny {
+        height: $tiny-avatar;
+            width: $tiny-avatar;
+            font-size: $tiny-avatar-font;
+        }
+    
+        &.small {
+            height: $small-avatar;
+            width: $small-avatar;
+            font-size: $small-avatar-font;
+        }
+    
+        &.medium {
+            height: $medium-avatar;
+            width: $medium-avatar;
+            font-size: $medium-avatar-font;
+        }
+    
+        &.large {
+            height: $large-avatar;
+            width: $large-avatar;
+            font-size: $large-avatar-font;
+        }
+    
+        &.img {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    > .name-person {
+        max-width: 121px;
+        line-height: initial;
+        color: $primary;
+
+        &.left {
+            margin-right: 15px;
+            text-align: right;
+        }
+
+        &.right {
+            margin-left: 15px;
+        }
+    }
+}

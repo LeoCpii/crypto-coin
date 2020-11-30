@@ -1,0 +1,8 @@
+<div class="root" @animation *ngIf="message">
+  <div class="alert" (click)="hide()">
+    <div>{{ message }}</div>
+    <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

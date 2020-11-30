@@ -1,0 +1,25 @@
+@import "includes";
+
+.root {
+  @include center;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  @include z-index("space");
+
+  .alert {
+    @include between;
+    @include text;
+    font-size: 14px;
+    background-color: $red;
+    border-radius: 4px;
+    color: $white;
+    padding: 5px 0px 5px 15px;
+    width: 40%;
+
+    @include for-tablet {
+      width: 100%;
+    }
+  }
+}

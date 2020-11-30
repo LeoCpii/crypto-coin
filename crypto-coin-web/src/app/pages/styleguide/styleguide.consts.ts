@@ -20,10 +20,6 @@ export const PAGES: IButtonPage[] = [
         label: 'Item',
         route: '/styleguide/item',
     },
-    // {
-    //     label: 'Icon',
-    //     route: '/styleguide/icon',
-    // },
     {
         label: 'Form',
         route: '/styleguide/form',
@@ -32,21 +28,17 @@ export const PAGES: IButtonPage[] = [
         label: 'Pipe',
         route: '/styleguide/pipe',
     },
-    // {
-    //     label: 'Advanced Filter',
-    //     route: '/styleguide/advanced-filter',
-    // },
-    // {
-    //     label: 'Dropdown',
-    //     route: '/styleguide/dropdown',
-    // },
     {
         label: 'Safe Value',
         route: '/styleguide/safe-value',
     },
-    // {
-    //     label: 'Collapsible',
-    //     route: '/styleguide/collapsible',
-    // }, 
+    {
+        label: 'Tabs',
+        route: '/styleguide/tabs',
+    },
+    {
+        label: 'Charts',
+        route: '/styleguide/charts',
+    },
 ];
 

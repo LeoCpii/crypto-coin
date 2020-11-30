@@ -1,0 +1,11 @@
+<div class="content">
+    <div class="name-person" *ngIf="sideName === 'left'" [ngClass]="{'left': sideName === 'left'}">{{ user }}</div>
+
+    <div *ngIf="!isLoading" [class]="'avatar ' + size" [class.background]="keepImage" [ngStyle]="{'background-image': 'url(' + img + ')'}"
+        [ngClass]="{'img': img}">
+        <ng-container *ngIf="!icon">
+            {{ nameInitials() | uppercase }}
+        </ng-container>
+    </div>
+    <div class="name-person" *ngIf="sideName === 'right'" [ngClass]="{'right': sideName === 'right'}">{{ user }}</div>
+</div>

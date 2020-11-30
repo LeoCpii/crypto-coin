@@ -15,6 +15,8 @@ import { AdvancedFilterPage } from './advanced-filter/advanced-filter.page';
 import { DropdownPage } from './dropdown/dropdown.page';
 import { SafeValuePage } from './safe-value/safe-value.page';
 import { CollapsiblePage } from './collapsible/collapsible.page';
+import { TabsPage } from './tabs/tabs.page';
+import { ChartPage } from './chart/chart.page';
 
 const PAGES = [
     StyleguidePage,
@@ -28,7 +30,9 @@ const PAGES = [
     AdvancedFilterPage,
     DropdownPage,
     SafeValuePage,
-    CollapsiblePage
+    CollapsiblePage,
+    TabsPage,
+    ChartPage
 ];
 
 @NgModule({

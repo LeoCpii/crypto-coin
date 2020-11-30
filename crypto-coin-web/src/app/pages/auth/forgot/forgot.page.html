@@ -7,19 +7,29 @@
     <div class="conatiner">
         <div class="left">
             <div class="left-content">
-                <div class="title">Esqueceu sua senha?</div>
-                <div class="subscription">
-                    Não se preocupe, vamos enviar uma mensagem para você redefinir sua senha.
-                </div>
-                <form [formGroup]="form" (submit)="forgot()">
-                    <div class="input">
-                        <app-input [control]="form.controls.email" formControlName="email" label="Email" type="email"
-                            [required]="true"></app-input>
+                <ng-container *ngIf="!hasSendMail">
+                    <div class="title">Esqueceu sua senha?</div>
+                    <div class="subscription">
+                        Não se preocupe, vamos enviar uma mensagem para você redefinir sua senha.
                     </div>
-
-                    <app-button type="submit" label="Enviar email" [fullWidth]="true" [disabled]="!form.valid">
-                    </app-button>
-                </form>
+                    <form [formGroup]="form" (submit)="forgot()">
+                        <div class="input">
+                            <app-input [control]="form.controls.email" formControlName="email" label="Email"
+                                type="email" [required]="true"></app-input>
+                        </div>
+                        <app-button type="submit" label="Enviar email" [fullWidth]="true" [disabled]="!form.valid"
+                            [isLoading]="isLoading">
+                        </app-button>
+                    </form>
+                </ng-container>
+                <ng-container *ngIf="hasSendMail">
+                    <div @animation>
+                        <div class="title">Pronto!</div>
+                        <div class="subscription">
+                            Enviamos um email para <span>{{ email }}</span> para redefinir sua senha =)
+                        </div>
+                    </div>
+                </ng-container>
             </div>
         </div>
         <div class="right">

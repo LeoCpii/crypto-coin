@@ -25,12 +25,13 @@
                         <p>Sua senha deve conter:</p>
                         <app-password-requirements [form]="form"></app-password-requirements>
                     </div>
-                    <app-button type="submit" label="Criar conta" [fullWidth]="true" [disabled]="!form.valid">
+                    <app-button type="submit" label="Criar conta" [fullWidth]="true" [disabled]="!form.valid" [isLoading]="isLoading">
                     </app-button>
                 </form>
             </div>
         </div>
         <div class="right">
+            <img [src]="images.password" alt="">
         </div>
     </div>
 </div>

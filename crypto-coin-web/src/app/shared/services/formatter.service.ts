@@ -68,4 +68,26 @@ export class FormatterService {
             return unformattedValue.replace(/^(\d{5})(\d{4})$/, '$1-$2');
         }
     };
+
+    private unmaskCurrency(value) {
+        if (typeof value === 'string' || (typeof value === 'string' && value.startsWith('R$'))) {
+            const variavelQualquer = parseFloat(value.replace(/[a-zA-z$.\ ]/g, '').replace(',', '.'));
+            return variavelQualquer;
+        }
+
+        return parseFloat(value);
+    };
+
+    public currencyFormatter({
+        value,
+        options = { minimumFractionDigits: 2, maximumFractionDigits: 2 },
+        prefix = '',
+    }) {
+        if (!value) {
+            return `${prefix}0,00`;
+        }
+        const currency = this.unmaskCurrency(Number(value));
+        return `${prefix}${currency.toLocaleString('pt-BR', options)}`;
+    };
 }
+

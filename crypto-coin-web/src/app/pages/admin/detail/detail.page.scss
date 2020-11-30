@@ -1,0 +1,124 @@
+@import "includes";
+
+.section-title {
+    @include page-sub-title;
+}
+
+.header {
+    @include between;
+
+    .left {
+        @include start;
+
+        .container-img {
+            width: 50px;
+            margin-right: 15px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .infos {
+            display: grid;
+
+            .rank {
+                opacity: 0.4;
+            }
+
+            .name {
+                @include page-title;
+                font-weight: $weight-regular;
+            }
+
+            .site {
+                text-decoration: none;
+                color: $blue;
+            }
+        }
+    }
+}
+
+.content {
+    margin-top: 15px;
+
+    .price {
+        @include page-title;
+        margin-bottom: 15px;
+    }
+
+    .social {
+        margin-bottom: 30px;
+
+        .item {
+            &:nth-child(n) {
+                margin-bottom: 15px;
+            }
+
+            &:last-child {
+                margin: 0;
+            }
+
+            .label {
+                opacity: 0.4;
+                margin-bottom: 5px;
+            }
+            .badges {
+                @include start;
+
+                .badge {
+                    padding: 5px;
+                    border-radius: 4px;
+                    color: $white;
+                    min-width: 100px;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: all 0.2s $ease-in-out;
+
+                    &:nth-child(n) {
+                        margin-right: 10px;
+                    }
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    &:hover {
+                        transform: translateY(-2px);
+                    }
+
+                    &--reddit {
+                        background-color: #ff5700;
+                    }
+
+                    &--facebook {
+                        background-color: #3b5998;
+                    }
+
+                    &--twitter {
+                        background-color: #1da1f2;
+                    }
+
+                    &--github {
+                        background-color: #333;
+                    }
+
+                    app-social {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .description {
+        margin-bottom: 30px;
+        
+        p {
+            a {
+                text-decoration: none;
+                color: $blue;
+            }
+        }
+    }
+}

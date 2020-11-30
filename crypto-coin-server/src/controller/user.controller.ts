@@ -21,11 +21,9 @@ class UserController {
             const user = await User.findOne({ email: email }).populate(['wallet']);
 
             return res.json({
-                wallet: {
-                    id: user.wallet._id,
-                    account: user.wallet.account,
-                    coins: user.wallet.coins,
-                },
+                id: user.wallet._id,
+                account: user.wallet.account,
+                coins: user.wallet.coins,
             });
         } catch (error) {
             next(error);
@@ -53,7 +51,7 @@ class UserController {
             const walletHelper = new WalletHelper();
 
             await walletHelper.updateCoin(walletId, wallet.coins);
-            
+
             return res.json({ message: 'Carteira atualizada com sucesso' });
         } catch (error) {
             next(error);

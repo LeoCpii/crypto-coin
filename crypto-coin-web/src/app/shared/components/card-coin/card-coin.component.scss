@@ -1,0 +1,112 @@
+@import "includes";
+
+.card {
+    position: relative;
+    background-color: $white;
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+    padding: 15px;
+    width: 100%;
+
+    .favorite {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        .icon {
+            color: #cecece;
+            transition: all 0.2s $ease-in-out;
+
+            &--active {
+                color: $red;
+            }
+        }
+    }
+
+    .header {
+        @include center;
+
+        .header-content {
+            text-align: center;
+
+            .container-image {
+                max-width: 50px;
+                margin: auto;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .name {
+                @include text;
+            }
+
+            .symbol {
+                @include text;
+                font-size: 14px;
+                opacity: 0.4;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .values {
+        @include between;
+        margin: 15px 0px;
+
+        .price {
+            @include text;
+        }
+
+        .percent-container {
+            @include end;
+            align-items: flex-end;
+
+            .state {
+                @include end;
+                align-items: flex-end;
+
+                &--positive {
+                    color: $green;
+                }
+
+                &--negative {
+                    color: $red;
+                }
+            }
+
+            .percent {
+                margin: 0px 5px;
+            }
+        }
+    }
+
+    .buttons {
+        .button {
+            width: 100%;
+            border: 1px solid transparent;
+            padding: 10px;
+            background: transparent;
+            cursor: pointer;
+            outline: none;
+
+            &:nth-child(n) {
+                margin-bottom: 15px;
+            }
+
+            &:last-child {
+                margin: 0px;
+            }
+
+            &--pay {
+                border-color: #e9e9e9;
+                text-transform: uppercase;
+            }
+
+            &--detail {
+                color: $primary;
+            }
+        }
+    }
+}

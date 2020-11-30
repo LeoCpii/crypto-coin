@@ -1,0 +1,58 @@
+<app-modal-page title="Detalhes da moeda" (end)="close()">
+    <div class="header">
+        <div class="left">
+            <div class="container-img">
+                <img [src]="data.image.large">
+            </div>
+            <div class="infos">
+                <label class="rank">Rank #{{ data.market_data.rank }}</label>
+                <label class="name">{{ data.name }} ({{ data.symbol }})</label>
+                <a class="site" [href]="data.links.homepage" target="_blank">{{ data.links.homepage }}</a>
+            </div>
+        </div>
+        <div>
+            <app-button label="comprar"></app-button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="price">{{ data.market_data.price.brl | money }}</div>
+
+        <div class="social">
+            <div class="item">
+                <div class="label">Comunidade</div>
+                <div class="badges">
+                    <div *ngIf="showReddit" (click)="goReddit()" class="badge badge--reddit">
+                        <app-social social="reddit"></app-social>
+                        Reddit
+                    </div>
+                    <div *ngIf="showFacebook" (click)="goFacebook()" class="badge badge--facebook">
+                        <app-social social="facebook"></app-social>
+                        Facebook
+                    </div>
+                    <div *ngIf="showTwitter" (click)="goTwitter()" class="badge badge--twitter">
+                        <app-social social="twitter"></app-social>
+                        Twitter
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">Código fonte</div>
+                <div class="badges">
+                    <div (click)="goGithub()" class="badge badge--github">
+                        <app-social social="github"></app-social>
+                        Github
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <div class="section-title">Descrição</div>
+            <p [innerHTML]="data.description"></p>
+        </div>
+
+        <div class="chart-container">
+            <div class="section-title">Valor de mercado</div>
+        </div>
+    </div>
+</app-modal-page>

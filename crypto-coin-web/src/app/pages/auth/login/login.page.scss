@@ -51,6 +51,7 @@
                     span {
                         @include crypto-coin;
                         color: $primary;
+                        font-size: 1.75rem;
                     }
                 }
 

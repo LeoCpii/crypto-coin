@@ -1,0 +1,17 @@
+<div class="root" [@initial]="animate">
+  <div class="header">
+    <div class="header-content">
+      <div class="container-title">
+        <h3 class="title">{{ title }}</h3>
+      </div>
+      <button (click)="close()" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+@import 'includes';
+
+.tabs-list {
+    display: flex;
+    position: relative;
+    user-select: none;
+    height: 50.8px;
+
+    > .tab {
+        @include center;
+        @include text;
+        font-weight: $weight-light;
+        color: rgba(0,0,0,0.4);
+        padding: 15px 0px;
+        margin-right: 24px;
+        cursor: pointer;
+        transition: all .4s;
+
+        &.active {
+            color: $grey--dark;
+        }
+    }
+
+    > .select {
+        height: 3px;
+        background-color: $primary;
+        transition: all .4s;
+        position: absolute;
+        width: 0px;
+        bottom: -8px;
+    }
+}
+
+.paddingBottom {
+    padding: 15px 0px 5px !important;
+}

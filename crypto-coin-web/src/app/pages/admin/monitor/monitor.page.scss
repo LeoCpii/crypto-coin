@@ -1,0 +1,135 @@
+@import "includes";
+
+.root {
+    .container {
+        min-height: calc(100vh - 73px);
+        @include grid();
+
+        .content {
+            @include grid-column-span(9);
+
+            .safe-button {
+                @include end;
+                width: 100%;
+                padding: 25px 30px 0px;
+
+                button {
+                    color: $primary;
+
+                    mat-icon {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .grid {
+                @include grid(3);
+                padding-top: 30px;
+                padding-bottom: 60px;
+
+                .col {
+                    @include grid-column-span(1);
+
+                    .label {
+                        @include text;
+                        font-size: 18px;
+                        opacity: 0.4;
+                        margin-bottom: 5px;
+                    }
+
+                    .value {
+                        @include header-title;
+                        font-size: 32px;
+                        color: $primary;
+                    }
+                }
+            }
+
+            .coins {
+                .title {
+                    @include page-sub-title;
+                    font-size: 2rem;
+
+                    span {
+                        font-size: 16px;
+                        font-weight: $weight-regular;
+                        color: $primary;
+                    }
+                }
+
+                .container-chart {
+                    @include grid();
+                    margin-top: 30px;
+
+                    .chart {
+                        @include grid-column-span(4);
+                    }
+                    .list {
+                        @include grid-column-span(8);
+                        padding-right: 30px;
+
+                        table {
+                            border-collapse: collapse;
+                            width: 100%;
+                            border: none;
+                        }
+
+                        td,
+                        th {
+                            border: none;
+                            text-align: left;
+                            padding: 8px;
+
+                            .bullet-container {
+                                @include start;
+
+                                .bullet {
+                                    padding: 5px;
+                                    background: red;
+                                    border-radius: 100%;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+
+                        tr:nth-child(even) {
+                            background-color: #dddddd;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu {
+            @include grid-column-span(3);
+            @include center;
+            align-items: flex-start;
+            width: 100%;
+            border-left: 1px solid #e9e9e9;
+            padding: 30px;
+            padding-right: 0px;
+
+            .menu-container {
+                width: 100%;
+                .text {
+                    @include text;
+                    font-size: 16px;
+                    text-align: justify;
+                    margin-bottom: 15px;
+                }
+
+                .info {
+                    @include start;
+                    font-size: 12px;
+                    font-weight: $weight-light;
+                    margin-bottom: 15px;
+
+                    mat-icon {
+                        color: $yellow;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

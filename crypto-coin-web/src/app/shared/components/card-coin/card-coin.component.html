@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="favorite">
+        <button (click)="toogle()" mat-icon-button>
+            <mat-icon class="icon" [class.icon--active]="state">favorite</mat-icon>
+        </button>
+    </div>
+    <div class="header">
+        <div class="header-content">
+            <div class="container-image">
+                <img [src]="image" alt="">
+            </div>
+            <div class="name">{{ data.name }}</div>
+            <span class="symbol">{{ data.symbol }}</span>
+        </div>
+    </div>
+    <div class="values">
+        <div class="price">
+            <ng-content select="[price]"></ng-content>
+        </div>
+        <div class="percent-container">
+            <div [ngClass]="getState()" class="state">
+                <mat-icon>{{ arrow }}</mat-icon>
+                <span class="percent">
+                    <ng-content select="[percent]"></ng-content>
+                </span>
+            </div>
+
+            <span>Dia</span>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button button--pay">Comprar</button>
+        <button (click)="goDetail()" class="button button--detail">Ver detalhes</button>
+    </div>
+</div>

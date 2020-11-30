@@ -18,14 +18,16 @@
                         <app-input [control]="form.controls.password" formControlName="password" label="Senha"
                             type="password" [required]="true"></app-input>
                     </div>
-                    
+
                     <div class="forgot" (click)="forgot()">Esqueceu sua senha?</div>
 
-                    <app-button type="submit" label="Entrar" [fullWidth]="true" [disabled]="!form.valid"></app-button>
+                    <app-button type="submit" label="Entrar" [fullWidth]="true" [disabled]="!form.valid"
+                        [isLoading]="isLoading"></app-button>
                 </form>
                 <div class="create">Não possui conta?</div>
 
-                <app-button (clickEvent)="create()" label="Criar Conta" theme="outline-light" [fullWidth]="true"></app-button>
+                <app-button (clickEvent)="create()" label="Criar Conta" theme="outline-light" [fullWidth]="true">
+                </app-button>
             </div>
         </div>
     </div>

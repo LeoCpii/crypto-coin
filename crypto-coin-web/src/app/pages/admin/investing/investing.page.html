@@ -1,0 +1,23 @@
+<div class="root" [@initial]="animate">
+    <h3 class="title">Top moedas do mercado</h3>
+
+    <ng-container *ngIf="loading">
+        <div class="list">
+            <div *ngFor="let item of arr" class="loading">
+                <app-skeleton-loading type="box"></app-skeleton-loading>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!loading">
+        <div class="list" [@listAnimation]="data.length">
+            <ng-container *ngFor="let coin of data">
+                <app-card-coin [data]="coin">
+                    <div price> {{ coin.market.price.brl | money }}</div>
+                    <div percent>{{ (coin.market.changePercent24h / 100) | percent }}</div>
+                </app-card-coin>
+            </ng-container>
+        </div>
+    </ng-container>
+
+</div>

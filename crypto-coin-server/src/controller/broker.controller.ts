@@ -28,10 +28,7 @@ class BrokerController {
                 },
                 market: {
                     rank: coin.market_data.market_cap_rank,
-                    changePercent24h: {
-                        brl: coin.market_data.price_change_percentage_24h_in_currency.brl,
-                        usd: coin.market_data.price_change_percentage_24h_in_currency.usd,
-                    },
+                    changePercent24h: coin.market_data.price_change_percentage_24h,
                     price: {
                         brl: coin.market_data.current_price.brl,
                         usd: coin.market_data.current_price.usd,
@@ -100,6 +97,23 @@ class BrokerController {
             }
 
             return res.json(map);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public async marketChart(req: Request, res: Response, next: NextFunction): Promise<Response> {
+        try {
+            const idCoin = req.params.coinId;
+            const { from, to } = req.body;
+
+            const CoinGeckoClient = new CoinGecko();
+
+            const market = await CoinGeckoClient.coins.fetchMarketChartRange(idCoin, {
+                vs_currency: 'brl', from, to,
+            });
+
+            return res.json(market.data);
         } catch (error) {
             next(error);
         }

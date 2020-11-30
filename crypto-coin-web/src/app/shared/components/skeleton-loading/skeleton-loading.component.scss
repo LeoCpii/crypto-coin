@@ -1,0 +1,105 @@
+@import "variables";
+
+$color-skeleton-loading: #dfdfdf;
+
+.loading {
+    position: absolute;
+    height: 100%;
+    width: 90%;
+    background: rgba(204, 204, 204, 0);
+    background: -moz-linear-gradient(
+        left,
+        rgba(226, 226, 226, 0) 0%,
+        rgba(255, 255, 255, 0.37) 52%,
+        rgba(254, 254, 254, 0) 100%
+    );
+    background: -webkit-gradient(
+        left top,
+        right top,
+        color-stop(0%, rgba(226, 226, 226, 0)),
+        color-stop(52%, rgba(255, 255, 255, 0.37)),
+        color-stop(100%, rgba(254, 254, 254, 0))
+    );
+    background: -webkit-linear-gradient(
+        left,
+        rgba(226, 226, 226, 0) 0%,
+        rgba(255, 255, 255, 0.37) 52%,
+        rgba(254, 254, 254, 0) 100%
+    );
+    background: -o-linear-gradient(
+        left,
+        rgba(226, 226, 226, 0) 0%,
+        rgba(255, 255, 255, 0.37) 52%,
+        rgba(254, 254, 254, 0) 100%
+    );
+    background: -ms-linear-gradient(
+        left,
+        rgba(226, 226, 226, 0) 0%,
+        rgba(255, 255, 255, 0.37) 52%,
+        rgba(254, 254, 254, 0) 100%
+    );
+    background: linear-gradient(
+        to right,
+        rgba(226, 226, 226, 0) 0%,
+        rgba(255, 255, 255, 0.37) 52%,
+        rgba(254, 254, 254, 0) 100%
+    );
+    left: -100%;
+    top: 0;
+    animation: animation 1.5s infinite;
+    animation-fill-mode: forwards;
+}
+
+.avatar {
+    position: relative;
+    background-color: $color-skeleton-loading;
+    border-radius: 100%;
+    overflow: hidden;
+
+    &.tiny {
+        width: $tiny-avatar;
+        height: $tiny-avatar;
+    }
+
+    &.small {
+        width: $small-avatar;
+        height: $small-avatar;
+    }
+
+    &.medium {
+        width: $medium-avatar;
+        height: $medium-avatar;
+    }
+
+    &.large {
+        width: $large-avatar;
+        height: $large-avatar;
+    }
+}
+
+.strip {
+    position: relative;
+    background-color: $color-skeleton-loading;
+    border-radius: 7px;
+    overflow: hidden;
+    height: 15px;
+    width: 100%;
+}
+
+.box {
+    position: relative;
+    background-color: $color-skeleton-loading;
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+@keyframes animation {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}

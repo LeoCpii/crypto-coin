@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdvancedFilterPage } from './advanced-filter/advanced-filter.page';
 import { ButtonPage } from './button/button.page';
+import { ChartPage } from './chart/chart.page';
 import { CollapsiblePage } from './collapsible/collapsible.page';
 import { ColorPage } from './color/color.page';
 import { DropdownPage } from './dropdown/dropdown.page';
@@ -11,6 +12,7 @@ import { ItemPage } from './item/item.page';
 import { PipePage } from './pipe/pipe.page';
 import { SafeValuePage } from './safe-value/safe-value.page';
 import { StyleguidePage } from './styleguide.page';
+import { TabsPage } from './tabs/tabs.page';
 import { TypohraphyPage } from './typography/typography.page';
 
 const routes: Routes = [
@@ -78,7 +80,17 @@ const routes: Routes = [
         path: 'collapsible',
         component: CollapsiblePage,
         data: { title: 'collapsible' }
-      }
+      },
+      {
+        path: 'tabs',
+        component: TabsPage,
+        data: { title: 'tabs' }
+      },
+      {
+        path: 'charts',
+        component: ChartPage,
+        data: { title: 'tabs' }
+      }       
     ]
   }
 ];

@@ -1,5 +1,11 @@
 export const INPUTS = [
     {
+        control: 'name',
+        label: 'Nome',
+        type: 'text',
+        required: true
+    },
+    {
         control: 'email',
         label: 'E-mail',
         type: 'email',

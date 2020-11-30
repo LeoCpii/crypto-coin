@@ -9,10 +9,7 @@ export interface ICoinSimpleDetail {
     },
     market_data: {
         market_cap_rank: number;
-        price_change_percentage_24h_in_currency: {
-            brl: number;
-            usd: number;
-        },
+        price_change_percentage_24h: number;
         current_price: {
             brl: number;
             usd: number;

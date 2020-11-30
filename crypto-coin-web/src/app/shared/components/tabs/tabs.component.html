@@ -1,0 +1,7 @@
+<div class="tabs-list">
+    <div class="tab" (click)="clickTab($event, item.route)" *ngFor="let item of tabs; let first=first"
+        [ngClass]="{'active' : (activeRoute === item.route || activeTab === item.route) && !isLoading, 'paddingBottom': paddingBottom}"
+        [id]="item.route">{{item.label}}
+    </div>
+    <div class="select" #select></div>
+</div>

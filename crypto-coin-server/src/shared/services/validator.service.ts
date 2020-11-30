@@ -3,7 +3,6 @@ class Validator {
     private onlyNumberRegex = /^([0-9])*$/;
 
     public isValidEmail(value: string) {
-        console.log('passei aqui')
         return this.emailRegex.test(value);
     }
 
