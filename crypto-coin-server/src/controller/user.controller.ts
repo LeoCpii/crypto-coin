@@ -15,6 +15,8 @@ class UserController {
 
             const user = await User.findOne({ email: email });
 
+            if (!user) { return res.json({}); }
+
             return res.json({
                 favorites: user.favorites,
                 name: user.name,
