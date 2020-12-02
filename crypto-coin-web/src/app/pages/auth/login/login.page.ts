@@ -7,8 +7,6 @@ import { IMAGES } from 'src/app/shared/constants/images.const';
 import { FirebaseAuthService } from 'src/app/shared/services/firebase-auth.service';
 import { SecurityService } from 'src/app/shared/services/security.service';
 
-import * as moment from 'moment';
-
 @Component({
     selector: 'app-login',
     templateUrl: './login.page.html',
@@ -71,10 +69,5 @@ export class LoginPage implements OnInit {
         this.router.navigate(['auth', 'forgot-password']);
     }
 
-    ngOnInit() {
-        const hoje = moment().unix();
-        const ontem = moment().subtract(1, 'day').unix();
-
-        console.log(hoje, ontem);
-    }
+    ngOnInit() { }
 }

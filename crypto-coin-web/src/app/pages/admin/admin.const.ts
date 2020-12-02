@@ -1,14 +1,17 @@
 export const PAGES = [
     {
         label: 'Acompanhar',
-        route: 'monitor'
+        route: 'monitor',
+        icon: 'insights'
     },
     {
         label: 'Investir',
-        route: 'investing'
+        route: 'investing',
+        icon: 'account_balance'
     },
     {
         label: 'Aporte',
-        route: 'aport'
+        route: 'aport',
+        icon: 'payment'
     }
 ]

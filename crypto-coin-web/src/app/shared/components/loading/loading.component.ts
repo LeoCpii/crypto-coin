@@ -6,14 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent {
+  private static nextId = 0;
+
   @Input() theme: 'primary' | 'light' = 'primary';
   @Input() size: number = 3.2;
 
-  public gradientId: string;
+  public id = `collapsible_${++LoadingComponent.nextId}`;
 
-  constructor() {
-    this.gradientId = `loading-gradient${Date.now()}`;
-  }
+  constructor() { }
 
   public getClass(): string[] {
     const cls = [];

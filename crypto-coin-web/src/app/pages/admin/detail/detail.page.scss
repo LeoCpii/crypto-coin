@@ -7,33 +7,49 @@
 .header {
     @include between;
 
+    @include for-tablet {
+        display: block;
+    }
+
     .left {
-        @include start;
+        .inline {
+            @include start;
 
-        .container-img {
-            width: 50px;
-            margin-right: 15px;
+            .container-img {
+                width: 50px;
+                margin-right: 15px;
 
-            img {
-                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+
+            .infos {
+                display: grid;
+
+                .rank {
+                    opacity: 0.4;
+                }
+
+                .name {
+                    @include page-title;
+                    font-weight: $weight-regular;
+                }
+
+                .site {
+                    text-decoration: none;
+                    color: $blue;
+                }
             }
         }
 
-        .infos {
-            display: grid;
+        .price {
+            @include page-title;
+            margin-bottom: 15px;
 
-            .rank {
-                opacity: 0.4;
-            }
-
-            .name {
-                @include page-title;
-                font-weight: $weight-regular;
-            }
-
-            .site {
-                text-decoration: none;
-                color: $blue;
+            @include for-tablet {
+                display: block;
+                margin-top: 15px;
             }
         }
     }
@@ -41,11 +57,6 @@
 
 .content {
     margin-top: 15px;
-
-    .price {
-        @include page-title;
-        margin-bottom: 15px;
-    }
 
     .social {
         margin-bottom: 30px;
@@ -66,6 +77,10 @@
             .badges {
                 @include start;
 
+                @include for-tablet {
+                    display: block;
+                }
+
                 .badge {
                     padding: 5px;
                     border-radius: 4px;
@@ -74,6 +89,10 @@
                     text-align: center;
                     cursor: pointer;
                     transition: all 0.2s $ease-in-out;
+
+                    @include for-tablet {
+                        margin: 5px 0px !important;
+                    }
 
                     &:nth-child(n) {
                         margin-right: 10px;
@@ -112,13 +131,24 @@
     }
 
     .description {
+        background-color: rgba(0, 0, 0, 0.035);
         margin-bottom: 30px;
-        
+        border-radius: 4px;
+
         p {
             a {
                 text-decoration: none;
                 color: $blue;
             }
+        }
+    }
+
+    .chart-container {
+        margin-bottom: 60px;
+        .loading {
+            position: relative;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 }

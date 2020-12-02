@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { JWT } from 'src/app/shared/lib/jwt.lib';
+import { Resolve, } from '@angular/router';
 import { MonitorService } from 'src/app/shared/services/monitor.service';
 import { IMonitorPage } from './monitor.page';
 
@@ -15,16 +14,14 @@ export interface AgroupDetail extends ICoin {
 export class MonitorResolver implements Resolve<IMonitorPage> {
 
     constructor(
-        private jwt: JWT,
-        private monitor: MonitorService
+        private monitor: MonitorService,
     ) { }
 
-    async resolve(route: ActivatedRouteSnapshot) {
-        const data = this.jwt.decodeToken();
-        const monitor = await this.monitor.wallet(data.email);
+    async resolve() {
+        const monitor = await this.monitor.wallet();
 
         let coins = [];
-        let agroupDetail: AgroupDetail[];
+        let agroupDetail: AgroupDetail[] = [];
         let totalInvested: { usd: any; brl: any; };
 
         if (monitor.coins.length) {
@@ -39,7 +36,7 @@ export class MonitorResolver implements Resolve<IMonitorPage> {
         return {
             id: monitor.id,
             account: monitor.account,
-            coins: agroupDetail,
+            coins: agroupDetail.length ? agroupDetail : coins,
             amountInvested: {
                 usd: totalInvested ? totalInvested.usd : 0,
                 brl: totalInvested ? totalInvested.brl : 0,

@@ -16,9 +16,10 @@ routes.post('/security/create-user', SecurityController.createUser);
 
 // USER
 routes.get('/user', Auth.autorize, UserController.user);
-routes.get('/user/:email/wallet', Auth.autorize, UserController.wallet);
-routes.post('/user/:email/wallet/:walletId/add', Auth.autorize, UserController.addCoin);
-routes.post('/user/:email/wallet/:walletId/contribution', Auth.autorize, UserController.contribution);
+routes.get('/user/wallet', Auth.autorize, UserController.wallet);
+routes.post('/user/wallet/add', Auth.autorize, UserController.addCoin);
+routes.post('/user/wallet/contribution', Auth.autorize, UserController.contribution);
+routes.put('/user/favorite', Auth.autorize, UserController.updateFavorite);
 
 // BROKER
 routes.get('/broker/ping', Auth.autorize, BrokerController.discovery);

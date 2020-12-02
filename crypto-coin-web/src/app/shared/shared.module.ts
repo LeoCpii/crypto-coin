@@ -8,17 +8,17 @@ import { JWT } from './lib/jwt.lib';
 import { SecurityService } from './services/security.service';
 import { MonitorService } from './services/monitor.service';
 import { BrokerService } from './services/broker.service';
+import { UserService } from './services/user.service';
 
 // Guard
 
 // Directive
 import { SafeValueDirective } from './directives/safe-value.directive';
 import { ResizeDirective } from './directives/resize.directive';
-
 // Pipes
 import { MoneyPipe } from './pipes/money.pipe';
 
-const SERVICES = [SecurityService, MonitorService, BrokerService];
+const SERVICES = [SecurityService, MonitorService, BrokerService, UserService];
 
 const LIBS = [JWT];
 

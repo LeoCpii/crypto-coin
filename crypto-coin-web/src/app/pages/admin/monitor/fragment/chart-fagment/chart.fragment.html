@@ -1,0 +1,51 @@
+<div>
+    <div class="sub-title">{{ title }}</div>
+    <div class="range">
+        <div *ngIf="!hasMobile">
+            <ng-container *ngFor="let button of buttons; let i = index">
+                <app-button (click)="toggle(i)" [label]="button.label" [theme]="button.state ? 'primary' : 'no-border'">
+                </app-button>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="hasMobile">
+            <button class="button-menu" [class.active]="hasFilter" mat-icon-button
+                [matMenuTriggerFor]="menu">
+                <mat-icon>filter_alt</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <ng-container *ngFor="let button of buttons; let i = index">
+                    <button class="button-menu" [class.active]="button.state" (click)="toggle(i)"
+                        mat-menu-item>{{ button.label }}</button>
+                </ng-container>
+            </mat-menu>
+        </ng-container>
+        <form [formGroup]="form">
+            <app-datepicker formControlName="from" label="De" placeholder="DD/MM/AAAA" [disabled]="true">
+            </app-datepicker>
+            <app-datepicker formControlName="to" label="Até" placeholder="DD/MM/AAAA" [disabled]="true">
+            </app-datepicker>
+        </form>
+    </div>
+    <ng-container *ngIf="!loading && !favorites.length">
+        <div class="empty-container">
+            <div class="content">
+                <div class="empty-container-icon">
+                    <app-svg svg="ghost" size="responsive"></app-svg>
+                </div>
+                <h2>Você ainda não possui nenhum favorito cadastrado</h2>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="loading">
+        <div class="loading-container">
+            <app-loading></app-loading>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!loading && favorites.length">
+        <div class="favorite-chart">
+            <app-chart [data]="data"></app-chart>
+        </div>
+    </ng-container>
+</div>

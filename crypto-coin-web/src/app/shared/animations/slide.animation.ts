@@ -38,6 +38,18 @@ export const SLIDE_Y_STATE = trigger('animation', [
     ]),
 ]);
 
+export const SLIDE_X_STATE = trigger('animationX', [
+    transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-30%)' }),
+        animate('200ms ease-out', style({ opacity: 1, transform: 'translate(0)' })),
+    ]),
+    transition(':leave', [
+        style({ opacity: 1 }),
+        animate('200ms ease-out', style({ opacity: 0 })),
+    ]),
+]);
+
+
 export const SLIDE_Y_SIMPLE_NOT_OPACITY = trigger('initial', [
     state('ready', style({ opacity: 1 })),
     transition('void => ready', [

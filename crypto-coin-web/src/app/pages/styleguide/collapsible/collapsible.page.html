@@ -1,89 +1,55 @@
-<div class="root">
-    <h3 class="title">Collapsible</h3>
+<div class="root" [@slide_XLR]="animate">
+    <div class="title-container">
+        <h3 class="title">Collapsible</h3>
+    </div>
 
     <section>
-        <h5 class="sub-title">Individual collapsible</h5>
+        <h3 class="title">Collapsible</h3>
         <div class="container">
-            <!-- <app-collapsible theme="light">
-                <div header>
-                    <div class="title-collpasible">Minha Conta</div>
-                </div>
-                <div body>
-                    <div class="content">
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                    </div>
-                </div>
-            </app-collapsible>
-
             <app-collapsible theme="light">
                 <div header>
-                    <div class="title-collpasible">Minha Conta</div>
+                    <span>Clique aqui!</span>
                 </div>
-                <div body>
-                    <div class="content">
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                    </div>
+                <div content>
+                    <p>{{ loremIpsum }}</p>
                 </div>
-            </app-collapsible> -->
+            </app-collapsible>
+        </div>
+
+        <div class="container">
+            <app-collapsible theme="light">
+                <div header>
+                    <span>Clique aqui!</span>
+                </div>
+                <div content>
+                    <p>{{ loremIpsum }}</p>
+                </div>
+            </app-collapsible>
         </div>
     </section>
 
     <section>
-        <h5 class="sub-title">Grupo collapsible</h5>
+        <h3 class="title">Collapsible group</h3>
         <div class="container">
-            <!-- <app-collapsible theme="light" [group]="true">
+            <app-collapsible theme="light" [group]="true">
                 <div header>
-                    <div class="title-collpasible">Minha Conta</div>
+                    <span>Clique aqui!</span>
                 </div>
-                <div body>
-                    <div class="content">
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                    </div>
+                <div content>
+                    <p>{{ loremIpsum }}</p>
                 </div>
-            </app-collapsible> -->
+            </app-collapsible>
+        </div>
 
-            <!-- <app-collapsible theme="light" [group]="true">
+        <div class="container">
+            <app-collapsible theme="light" [group]="true">
                 <div header>
-                    <div class="title-collpasible">Minha Conta</div>
+                    <span>Clique aqui!</span>
                 </div>
-                <div body>
-                    <div class="content">
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                        <div class="item">Um texto aqui</div>
-                    </div>
+                <div content>
+                    <p>{{ loremIpsum }}</p>
                 </div>
-            </app-collapsible> -->
+            </app-collapsible>
         </div>
     </section>
 </div>

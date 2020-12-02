@@ -10,11 +10,17 @@
         </section>
 
         <section>
-            <div class="container-item">
+            <div class="container-item container-item--small">
                 <h5 class="sub-title">Donut</h5>
                 <app-chart [data]="donut"></app-chart>
             </div>
         </section>
-    </div>
 
+        <section class="full">
+            <div class="container-item container-item--full">
+                <h5 class="sub-title">Line</h5>
+                <app-chart [data]="line"></app-chart>
+            </div>
+        </section>
+    </div>
 </div>

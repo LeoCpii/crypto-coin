@@ -40,5 +40,9 @@ export const PAGES: IButtonPage[] = [
         label: 'Charts',
         route: '/styleguide/charts',
     },
+    {
+        label: 'Collapsible',
+        route: '/styleguide/collapsible',
+    },
 ];
 

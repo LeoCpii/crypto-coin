@@ -1,0 +1,37 @@
+<div class="card-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="left">
+                <div class="input-search">
+                    <mat-icon>search</mat-icon>
+                    <input (input)="search($event)" type="text" placeholder="Buscar...">
+                </div>
+            </div>
+            <div *ngIf="!hasMobile" class="right">
+                <div *ngFor="let button of buttons">
+                    <button [class.active]="button.active" (click)="do(button)" class="button-filter">
+                        {{ button.label }} </button>
+                </div>
+                <div class="line"></div>
+                <button [class.active]="hasFilter" (click)="reset()" class="button-filter" [disabled]="!hasFilter">
+                    Limpar filtro </button>
+            </div>
+
+            <div *ngIf="hasMobile" class="right">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>filter_list</mat-icon>
+                </button>
+                <button mat-icon-button [class.active]="hasFilter" [disabled]="!hasFilter">
+                    <mat-icon (click)="reset()">delete</mat-icon>
+                </button>
+
+                <mat-menu #menu="matMenu">
+                    <ng-container *ngFor="let button of buttons">
+                        <button mat-menu-item [class.active]="button.active"
+                            (click)="do(button)">{{ button.label }}</button>
+                    </ng-container>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</div>

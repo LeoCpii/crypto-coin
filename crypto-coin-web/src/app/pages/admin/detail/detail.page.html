@@ -1,22 +1,23 @@
 <app-modal-page title="Detalhes da moeda" (end)="close()">
     <div class="header">
         <div class="left">
-            <div class="container-img">
-                <img [src]="data.image.large">
+            <div class="inline">
+                <div class="container-img">
+                    <img [src]="data.image.large">
+                </div>
+                <div class="infos">
+                    <label class="rank">Rank #{{ data.market_data.rank }}</label>
+                    <label class="name">{{ data.name }} ({{ data.symbol }})</label>
+                    <a class="site" [href]="data.links.homepage" target="_blank">{{ data.links.homepage }}</a>
+                </div>
             </div>
-            <div class="infos">
-                <label class="rank">Rank #{{ data.market_data.rank }}</label>
-                <label class="name">{{ data.name }} ({{ data.symbol }})</label>
-                <a class="site" [href]="data.links.homepage" target="_blank">{{ data.links.homepage }}</a>
-            </div>
+            <div class="price">{{ data.market_data.price.brl | money }}</div>
         </div>
         <div>
-            <app-button label="comprar"></app-button>
+            <app-button (clickEvent)="openModal()" label="comprar" [fullWidth]="hasMobile"></app-button>
         </div>
     </div>
     <div class="content">
-        <div class="price">{{ data.market_data.price.brl | money }}</div>
-
         <div class="social">
             <div class="item">
                 <div class="label">Comunidade</div>
@@ -47,12 +48,44 @@
         </div>
 
         <div class="description">
-            <div class="section-title">Descrição</div>
-            <p [innerHTML]="data.description"></p>
+            <app-collapsible>
+                <div header>
+                    <div class="section-title">Descrição</div>
+                </div>
+                <div content>
+                    <p [innerHTML]="data.description"></p>
+                </div>
+            </app-collapsible>
         </div>
 
         <div class="chart-container">
             <div class="section-title">Valor de mercado</div>
+
+            <ng-container *ngIf="!loading">
+                <app-chart [data]="chart"></app-chart>
+            </ng-container>
+            <ng-container *ngIf="loading">
+                <div class="loading">
+                    <app-loading></app-loading>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="chart-container">
+            <div class="section-title">Volume de mercado</div>
+
+            <ng-container *ngIf="!loading">
+                <app-chart [data]="chartVolume"></app-chart>
+            </ng-container>
+            <ng-container *ngIf="loading">
+                <div class="loading">
+                    <app-loading></app-loading>
+                </div>
+            </ng-container>
         </div>
     </div>
 </app-modal-page>
+
+<app-modal-pay (payEvent)="pay($event)" [data]="dataModal" [loading]="modalLoading">
+    {{ dataModal?.price | money }}
+</app-modal-pay>

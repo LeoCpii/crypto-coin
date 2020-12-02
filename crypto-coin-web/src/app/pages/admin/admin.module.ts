@@ -8,14 +8,19 @@ import { AdminPage } from './admin.page';
 import { InvestingPage } from './investing/investing.page';
 import { AportPage } from './aport/aport.page';
 import { DetailPage } from './detail/detail.page';
+import { ChartFragment } from './monitor/fragment/chart-fagment/chart.fragment';
 
 const PAGES = [
     AdminPage,
     MonitorPage,
     InvestingPage,
     AportPage,
-    DetailPage
+    DetailPage,
 ];
+
+const FRAGMENTS = [
+    ChartFragment
+]
 
 @NgModule({
     imports: [
@@ -25,6 +30,6 @@ const PAGES = [
         FormsModule,
         ReactiveFormsModule,
     ],
-    declarations: [...PAGES],
+    declarations: [...PAGES, ...FRAGMENTS],
 })
 export class AdminModule { }

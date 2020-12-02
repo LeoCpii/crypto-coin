@@ -1,0 +1,13 @@
+<div class="collapsible">
+    <div class="header" (click)="toggle()">
+        <div>
+            <ng-content select="[header]"></ng-content>
+        </div>
+        <div class="icon" [class.icon--open]="isOpen">
+            <app-svg svg="chevron-down" size="large" [theme]="theme"></app-svg>
+        </div>
+    </div>
+    <div class="content" [@openClose]="state">
+        <ng-content select="[content]"></ng-content>
+    </div>
+</div>

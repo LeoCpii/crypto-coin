@@ -45,7 +45,7 @@ export const CHART = {
     tooltip: {
         y: {
             formatter: function (val) {
-                return "$ " + val + " thousands"
+                return '$ ' + val + ' thousands'
             }
         }
     }
@@ -54,9 +54,9 @@ export const CHART = {
 export const DONUT: IApexChart = {
     series: [44, 55, 13, 43, 22],
     chart: {
-        type: "donut"
+        type: 'donut'
     },
-    labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
+    labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
     responsive: [
         {
             breakpoint: 480,
@@ -65,10 +65,60 @@ export const DONUT: IApexChart = {
                     width: 200
                 },
                 legend: {
-                    position: "bottom"
+                    position: 'bottom'
                 }
             }
         }
     ],
+    colors: COLORS
+};
+
+export const LINE: IApexChart = {
+    series: [
+        {
+            name: 'Desktops',
+            data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        },
+        {
+            name: 'Noebooks',
+            data: [41, 69, 40, 12, 78, 23, 50, 80, 120]
+        }
+    ],
+    chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+            enabled: false
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'straight'
+    },
+    title: {
+        text: 'Product Trends by Month',
+        align: 'left'
+    },
+    grid: {
+        row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+        }
+    },
+    xaxis: {
+        categories: [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep'
+        ]
+    },
     colors: COLORS
 };

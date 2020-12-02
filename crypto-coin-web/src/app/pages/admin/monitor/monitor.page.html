@@ -2,12 +2,13 @@
     <div class="container">
         <div class="content">
             <div class="safe-button">
-                <button (click)="toogle()" mat-button>
+                <button (click)="toggle()" mat-button>
                     <mat-icon>{{ button.icon }}</mat-icon>
                     {{ button.label }}
                 </button>
             </div>
-            <div class="grid">
+            <!-- DESKTOP -->
+            <div *ngIf="!hasMobile" class="grid">
                 <div class="col">
                     <div class="label">Meus Investimentos</div>
                     <div safe-value class="value">{{ amountInvested | money }}</div>
@@ -21,34 +22,84 @@
                     <div safe-value class="value">{{ account | money }}</div>
                 </div>
             </div>
-            <div class="coins">
-                <div class="title">Meus Investimentos <span>{{ length }}</span></div>
-                <div class="container-chart">
-                    <div class="chart">
-                        <app-chart [data]="chart"></app-chart>
+            <!-- MOBILE -->
+            <div *ngIf="hasMobile" class="list">
+                <app-carousel>
+                    <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                        <div class="label">Meus Investimentos</div>
+                        <div safe-value class="value">{{ amountInvested | money }}</div>
                     </div>
-                    <div class="list">
-                        <table [@listAnimation]="data.coins.length">
-                            <tr>
-                                <th colspan="2">Atualizado em {{date}}</th>
-                            </tr>
-                            <ng-container *ngFor="let coin of data.coins; let i = index">
-                                <tr>
-                                    <td>
-                                        <div class="bullet-container">
-                                            <div class="bullet" [ngStyle]="{ 'background': colors[i] }"></div>
-                                            {{ coin.name }} ({{coin.symbol}})
-                                        </div>
-                                    </td>
-                                    <td safe-value style="text-align: right;">{{ coin.total.brl | money }}</td>
-                                </tr>
-                            </ng-container>
-                        </table>
+                    <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                        <div class="label">Meu Patrimônio</div>
+                        <div safe-value class="value">{{ patrimony | money }}</div>
                     </div>
-                </div>
+                    <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                        <div class="label">Conta Crypto Coin</div>
+                        <div safe-value class="value">{{ account | money }}</div>
+                    </div>
+                </app-carousel>
             </div>
+
+            <section class="coins">
+                <div class="title">Meus Investimentos <span *ngIf="!isEmpty">{{ length }}</span></div>
+                <div class="container-chart">
+
+                    <ng-container *ngIf="!loading && !isEmpty">
+                        <div class="chart">
+                            <app-chart [data]="chart"></app-chart>
+                        </div>
+                        <div class="list">
+                            <table [@listAnimation]="data.coins.length">
+                                <tr>
+                                    <th colspan="2">Atualizado em {{date}}</th>
+                                </tr>
+                                <ng-container *ngFor="let coin of data.coins; let i = index">
+                                    <tr>
+                                        <td>
+                                            <div class="bullet-container">
+                                                <div class="bullet" [ngStyle]="{ 'background': colors[i] }"></div>
+                                                {{ coin.name }} ({{coin.symbol}})
+                                            </div>
+                                        </td>
+                                        <td safe-value style="text-align: right;">{{ coin.total.brl | money }}</td>
+                                    </tr>
+                                </ng-container>
+                            </table>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="!loading && isEmpty">
+                        <div class="empty">
+                            <div>
+                                <div class="empty-container-icon">
+                                    <app-svg svg="wallet" size="responsive"></app-svg>
+                                </div>
+                                <h2>Sua carteira está vazia =/</h2>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="loading">
+                        <div class="loading">
+                            <app-loading></app-loading>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </section>
+
+            <section>
+                <div class="title">Comparativo dos favoritos</div>
+                <div class="favorite-charts">
+                    <app-chart-fragment (setLoading)="setLoadingPrice($event)" title="Valor de mercado" prop="prices"
+                        [loading]="loadingPrice"></app-chart-fragment>
+
+                    <app-chart-fragment (setLoading)="setLoadingVolume($event)" title="Volume de mercado" prop="total_volumes"
+                        [loading]="loadingVolume"></app-chart-fragment>
+                </div>
+            </section>
         </div>
-        <div class="menu">
+        <div *ngIf="!hasMobile" class="menu" @animationX>
             <div class="menu-container">
                 <div class="text">
                     Para fazer seu dinheiro render mais, faça um aporte clicando no botão abaixo e comece a investir!
@@ -57,7 +108,7 @@
                     <mat-icon>info</mat-icon>
                     <span>A transferência pode levar até 5 min para estar disponível</span>
                 </div>
-                <app-button label="Aporte" [fullWidth]="true"></app-button>
+                <app-button (clickEvent)="go()" label="Aporte" [fullWidth]="true"></app-button>
             </div>
         </div>
     </div>

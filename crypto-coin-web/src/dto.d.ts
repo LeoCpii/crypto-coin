@@ -9,6 +9,12 @@ interface IJWT {
     name: string;
 }
 
+interface IUser {
+    favorites: Array<{ name: string; id: string }>;
+    name: string;
+    email: string;
+}
+
 interface IWallet {
     id: string;
     account: number;
@@ -127,4 +133,16 @@ interface ICoinDetailFull {
             usd: number;
         }
     }
+}
+
+interface IMarketChart {
+    prices: Array<number>[];
+    total_volumes: Array<number>[];
+}
+
+interface IPay {
+    id: string;
+    symbol: string;
+    name: string;
+    quota: number;
 }

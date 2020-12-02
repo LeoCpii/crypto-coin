@@ -1,0 +1,43 @@
+@import "includes";
+
+.title-modal-smart {
+    h1 {
+        font-size: 20px;
+        font-family: $font-regular;
+        font-weight: 100;
+        padding: 10px;
+        border-bottom: 1px solid #e9e9e9;
+    }
+}
+
+.footer-modal-smart {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.content-modal-smart {
+    padding: 20px 10px;
+    font-family: $font-regular !important;
+}
+
+.margin-right {
+    margin-right: 15px;
+}
+
+button {
+    text-transform: uppercase;
+
+    &.primary {
+        background-color: var(--primary);
+        margin-left: 5px;
+        color: $white;
+    }
+}
+
+@media only screen and (max-width: 899.98px) {
+    .footer-modal-smart {
+        display: block;
+    }
+}

@@ -20,17 +20,17 @@ export class SafeValueDirective implements OnInit, AfterViewInit, OnDestroy {
         this.el.nativeElement.innerHTML = 'R$ &bull;&bull;&bull;&bull;&bull;&bull;';
     }
 
-    private toogle(state: boolean): void {
+    private toggle(state: boolean): void {
         state ? this.show() : this.hide()
     }
 
     ngAfterViewInit() {
         this.original = this.el.nativeElement.innerText;
-        this.toogle(this.safe.visible);
+        this.toggle(this.safe.visible);
     }
 
     ngOnInit() {
-        this.subscription = this.safe.visibleEmitter.subscribe((state: boolean) => this.toogle(state));
+        this.subscription = this.safe.visibleEmitter.subscribe((state: boolean) => this.toggle(state));
     }
 
     ngOnDestroy() {

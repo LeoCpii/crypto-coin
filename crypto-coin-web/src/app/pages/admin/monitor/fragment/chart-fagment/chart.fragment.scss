@@ -1,0 +1,48 @@
+@import "includes";
+
+.sub-title {
+    @include page-sub-title;
+    margin: 15px 0px;
+}
+
+.empty-container {
+    @include center;
+    width: 100%;
+    height: 250px;
+    background-color: rgba(0,0,0,0.035);
+
+    .empty-container-icon {
+        margin: auto;
+        margin-bottom: 15px;
+        width: 100px;
+    }
+}
+
+.loading-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.range {
+    @include between;
+    margin-bottom: 30px;
+
+    form {
+        @include end;
+
+        app-datepicker {
+            margin-right: 15px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.button-menu {
+    &.active {
+        color: $primary;
+    }
+}

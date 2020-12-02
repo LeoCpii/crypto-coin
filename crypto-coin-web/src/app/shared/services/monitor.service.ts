@@ -6,8 +6,8 @@ import { AjaxService } from './ajax.service';
 export class MonitorService {
     constructor(private ajax: AjaxService) { }
 
-    public async wallet(email: string) {
-        const url = endpoints.monitor.wallet(email).url;
+    public async wallet() {
+        const url = endpoints.monitor.wallet.url;
         return await this.ajax.get<IWallet>(url);
     }
 

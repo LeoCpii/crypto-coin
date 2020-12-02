@@ -1,0 +1,13 @@
+<ngx-smart-modal [identifier]="identifier" (onOpen)="open()" (onAnyCloseEvent)="close()" [customClass]="getClass()">
+    <div *ngIf="caption" class="title-modal-smart">
+        <h1>{{ caption }}</h1>
+    </div>
+    <div class="content-modal-smart">
+        <ng-content></ng-content>
+    </div>
+    <div *ngIf="!noFooter" class="footer-modal-smart">
+        <button (click)="cancel()" [type]="cancelTypeButton" mat-raised-button>{{ cancelLabel }}</button>
+        <button (click)="agree()" class="primary" [type]="agreeTypeButton" mat-raised-button
+            [disabled]="disabledAgree">{{ agreeLabel }}</button>
+    </div>
+</ngx-smart-modal>

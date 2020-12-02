@@ -1,4 +1,35 @@
-<div class="root">
-    <h3 class="title">Aport</h3>
+<app-modal-page title="Aporte" (end)="close()">
+    <div *ngIf="!hasFinal" class="content">
+        <div class="title">Valor do aporte</div>
 
-</div>
+        <div class="input-container">
+            <div class="sub">O valor mínimo para aporte é de <span>R$ 100,00</span>.</div>
+
+            <input currencyMask [(ngModel)]="model" type="text" [options]="getOptions()"
+                (ngModelChange)="onChange(model)" placeholder="R$ 0,00">
+        </div>
+
+        <div class="buttons">
+            <button (click)="add(100)" class="button">+ 100,00</button>
+            <button (click)="add(500)" class="button">+ 500,00</button>
+            <button (click)="add(1000)" class="button">+ 1.000,00</button>
+            <button (click)="add(10000)" class="button">+ 10.000,00</button>
+        </div>
+
+        <div class="button-aport">
+            <app-button (clickEvent)="finalize()" label="Finalizar" [disabled]="!form.valid" [isLoading]="loading">
+            </app-button>
+        </div>
+    </div>
+    <div *ngIf="hasFinal" @animation class="container-final">
+        <div>
+            <div class="title">Aporte realizado com sucesso</div>
+            <div class="sub-title">Em até 5 minutos a quantia estará disponível em sua carteira</div>
+
+            <div class="buttons">
+                <app-button (click)="go('monitor')" label="Ir para carteira" theme="no-border" [fullWidth]="hasMobile"></app-button>
+                <app-button (click)="go('investing')" label="Ver moedas" [fullWidth]="hasMobile"></app-button>
+            </div>
+        </div>
+    </div>
+</app-modal-page>

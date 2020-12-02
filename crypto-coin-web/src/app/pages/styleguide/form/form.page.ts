@@ -23,6 +23,7 @@ export class FormPage implements OnInit {
         email: new FormControl(''),
         password: new FormControl(''),
         icon: new FormControl(''),
+        date: new FormControl(''),
     });
 
     constructor() { }

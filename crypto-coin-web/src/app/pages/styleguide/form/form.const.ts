@@ -89,6 +89,15 @@ export const INPUTS = [
         messageError: '',
         icon: 'search'
     },
+    {
+        control: 'date',
+        required: false,
+        disabled: false,
+        label: 'Date Picker',
+        type: 'date',
+        placeholder: '',
+        messageError: '',
+    },
 ]
 
 export const RADIO_GROUP = [

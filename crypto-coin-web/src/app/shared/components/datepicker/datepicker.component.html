@@ -1,0 +1,14 @@
+<div class="container-field">
+    <div class="field" [class.field--invalid]="shouldDisplayError()" [class.field--border]="border">
+        <div class="field-float">
+            <input #input matInput type="text" [mask]="mask" [placeholder]="placeholder" [disabled]="disabled"
+                (dateInput)="addEvent($event.target.value)" (dateChange)="addEvent($event.target.value)"
+                (blur)="onBlur($event.target.value)" [required]="required" [matDatepicker]="picker" startView="year">
+            <label>{{ label }}</label>
+        </div>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+    </div>
+
+    <div class="feedback-error" [class.feedback-error--active]="shouldDisplayError()">{{ messageError }}</div>
+</div>

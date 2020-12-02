@@ -11,12 +11,20 @@
     }
 
     .sections {
-        @include grid();
+        @include grid(12, 30px);
 
         section {
             @include grid-column-span(6);
 
+            &.full {
+                @include grid-column-span(12);
+            }
+
             .container-item {
+                &--small {
+                    max-width: 450px;
+                }
+
                 .sub-title {
                     @include page-sub-title;
                 }

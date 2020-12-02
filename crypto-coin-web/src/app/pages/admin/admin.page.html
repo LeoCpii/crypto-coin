@@ -4,10 +4,28 @@
         <div class="container-header">
             <div class="content-header">
                 <div class="left">
-                    <app-logo></app-logo>
-                    <div class="buttons">
-                        <app-tabs (clickEvent)="go($event)" [tabs]="pages"></app-tabs>
-                    </div>
+                    <ng-container *ngIf="!hasMobile">
+                        <div class="logo">
+                            <app-logo (click)="go('monitor')"></app-logo>
+                        </div>
+                        <div class="buttons">
+                            <app-tabs (clickEvent)="go($event)" [tabs]="pages"></app-tabs>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="hasMobile">
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <ng-container *ngFor="let page of pages">
+                                <button class="button" [routerLink]="page.route" routerLinkActive="active"
+                                    mat-menu-item>
+                                    <mat-icon>{{ page.icon }}</mat-icon>
+                                    <span>{{ page.label }}</span>
+                                </button>
+                            </ng-container>
+                        </mat-menu>
+                    </ng-container>
                 </div>
 
                 <div class="right">

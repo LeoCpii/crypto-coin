@@ -1,12 +1,11 @@
 @mixin header-title {
-  // font-family: var(--font-theme);
   font-size: 5.5rem;
   font-weight: $weight-light;
   line-height: 1;
 
-  @include for-large-tablet {
-    font-size: 3.3rem;
-  }
+  // @include for-large-tablet {
+  //   font-size: 3.3rem;
+  // }
 }
 
 @mixin page-title {

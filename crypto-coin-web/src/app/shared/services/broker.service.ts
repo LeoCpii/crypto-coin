@@ -15,4 +15,9 @@ export class BrokerService {
         const url = endpoints.broker.detail(id).url;
         return await this.ajax.get<ICoinDetailFull>(url);
     }
+
+    public async marketChart(id: string, from: number, to: number) {
+        const url = endpoints.broker.marketChart(id, from, to).url;
+        return await this.ajax.get<IMarketChart>(url);
+    }
 }

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
+import { SLIDE_X_L_TO_R } from 'src/app/shared/animations/slide.animation';
+import { LOREM_IPSUM } from './collapsible.const';
 
 @Component({
-    selector: 'app-collapsible-page',
-    templateUrl: './collapsible.page.html',
-    styleUrls: ['./collapsible.page.scss'],
-    animations: [LIST_ANIMATION_LATERAL]
+  selector: 'app-collapsible-page',
+  templateUrl: './collapsible.page.html',
+  styleUrls: ['./collapsible.page.scss'],
+  animations: [SLIDE_X_L_TO_R],
 })
-
 export class CollapsiblePage implements OnInit {
-    public show: boolean;
+  public animate = 'ready';
+  public loremIpsum = LOREM_IPSUM;
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() {
-        setTimeout(() => { this.show = true }, 0);
-    }
+  ngOnInit() { }
+
 }

@@ -16,6 +16,7 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
 import * as moment from 'moment';
+import { CurrentUserService } from './shared/services/current-user.service';
 
 moment.locale('pt-BR');
 registerLocaleData(localePt, 'pt');
@@ -38,7 +39,7 @@ const MODULES = [
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ...MODULES
-  ],
+  ], 
   providers: [
     FirebaseAuthService,
     { provide: LOCALE_ID, useValue: 'pt' },

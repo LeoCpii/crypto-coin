@@ -1,0 +1,142 @@
+@import "includes";
+
+.modal {
+  .header {
+    @include start;
+    margin-bottom: 30px;
+
+    .image-container {
+      width: 70px;
+      margin-right: 15px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .name {
+      @include page-title;
+    }
+
+    .symbol {
+      @include text;
+      opacity: 0.4;
+    }
+  }
+
+  .loading-detail {
+    position: relative;
+    height: 250px;
+  }
+
+  .input-container {
+    position: relative;
+    margin-bottom: 30px;
+    .sub {
+      @include text;
+      margin-bottom: 30px;
+
+      span {
+        font-weight: $weight-bold;
+      }
+    }
+
+    input {
+      @include text;
+      outline: none;
+      border: 1px solid #e9e9e9;
+      background-color: $white;
+      font-size: 32px;
+      padding: 15px 20px;
+      border-radius: 4px;
+      width: 100%;
+      transition: all .2s $ease-in-out;
+      @include z-index('sky');
+
+      &.invalid {
+        border: 1px solid $red;
+      }
+    }
+
+    .message-error {
+      position: absolute;
+      bottom: 0;
+      opacity: 0;
+      color: $red;
+      transition: all .2s $ease-in-out;
+      @include z-index('floor');
+
+      &.active {
+        bottom: -24px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .buttons {
+    @include grid();
+
+    @include for-large-tablet {
+      @include grid(12, 15px);
+    }
+
+    .button {
+      @include grid-column-span(3);
+      border: none;
+      outline: none;
+      padding: 15px 20px;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      @include for-large-tablet {
+        @include grid-column-span(6);
+        margin-right: 0px !important;
+      }
+
+      @include for-mobile {
+        @include grid-column-span(12);
+        margin-right: 0px !important;
+      }
+
+      &:nth-child(n) {
+        margin-right: 15px;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .rows {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .row {
+      @include between;
+      padding: 10px 0px;
+      border-bottom: 1px solid #e9e9e9;
+
+      &:last-child {
+        border: none;
+      }
+
+      &--bold {
+        font-weight: $weight-bold;
+      }
+
+      .right {
+        text-align: right;
+      }
+    }
+  }
+
+  .button-container {
+    @include end;
+
+    @include for-large-tablet {
+      display: block;
+    }
+  }
+}

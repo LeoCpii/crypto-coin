@@ -1,6 +1,35 @@
 <div class="root" [@initial]="animate">
     <h3 class="title">Top moedas do mercado</h3>
 
+    <app-filter [buttons]="buttons" [data]="data" propSearch="name" (filter)="filter($event)" (clean)="clean()">
+    </app-filter>
+
+
+    <div class="button-change-container">
+        <ng-container *ngIf="!hasMobile">
+            <app-button (clickEvent)="compare()" label="Comparar" theme="no-border"
+                [disabled]="!(favorites.length > 1)">
+            </app-button>
+            <app-button (clickEvent)="saveFavorites()" label="Salvar favoritos" theme="no-border"
+                [disabled]="!hasChange" [isLoading]="loadingFavoriteButtons">
+            </app-button>
+        </ng-container>
+        <ng-container *ngIf="hasMobile">
+            <button mat-button [matMenuTriggerFor]="menu">
+                Opções
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (clickEvent)="compare()">
+                    <span>Comparar</span>
+                </button>
+                <button mat-menu-item (clickEvent)="saveFavorites()" [disabled]="!hasChange">
+                    <span>Salvar favoritos</span>
+                </button>
+            </mat-menu>
+        </ng-container>
+
+    </div>
+
     <ng-container *ngIf="loading">
         <div class="list">
             <div *ngFor="let item of arr" class="loading">
@@ -11,13 +40,29 @@
 
     <ng-container *ngIf="!loading">
         <div class="list" [@listAnimation]="data.length">
-            <ng-container *ngFor="let coin of data">
-                <app-card-coin [data]="coin">
+            <ng-container *ngFor="let coin of filtered">
+                <app-card-coin [data]="coin" (payEvent)="openModalPay($event)" (toggleEvent)="toggle($event)">
                     <div price> {{ coin.market.price.brl | money }}</div>
                     <div percent>{{ (coin.market.changePercent24h / 100) | percent }}</div>
                 </app-card-coin>
             </ng-container>
         </div>
     </ng-container>
-
 </div>
+
+<app-modal-smart [noFooter]="true" identifier="modal-detail">
+    <div class="modal">
+        <div *ngIf="!loadCompare">
+            <div class="title">Comparativo de cripto moedas</div>
+            <app-chart [data]="chartCompare"></app-chart>
+        </div>
+
+        <div *ngIf="loadCompare" class="loading-detail">
+            <app-loading></app-loading>
+        </div>
+    </div>
+</app-modal-smart>
+
+<app-modal-pay (payEvent)="pay($event)" [data]="dataModalPay" [loading]="modalPayLoading">
+    {{ dataModalPay?.price | money }}
+</app-modal-pay>

@@ -1,0 +1,50 @@
+<app-modal-smart [noFooter]="true" (closeEvent)="reset()" identifier="modal-pay">
+    <div class="modal">
+        <div *ngIf="!loading">
+            <div class="header">
+                <div class="image-container">
+                    <img [src]="data.image">
+                </div>
+                <div>
+                    <div class="name">{{ data.name }}</div>
+                    <div class="symbol">{{ data.symbol }}</div>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="sub">Preço atual: <span>
+                        <ng-content></ng-content>
+                    </span>.</div>
+
+                <input currencyMask [(ngModel)]="model" type="text" [options]="getOptions()"
+                    (ngModelChange)="onChange(model)" placeholder="R$ 0,00" [class.invalid]="hasError">
+                <div class="message-error" [class.active]="hasError">{{ errors }}</div>
+            </div>
+
+            <div class="buttons">
+                <button (click)="add(100)" class="button">+ 100,00</button>
+                <button (click)="add(500)" class="button">+ 500,00</button>
+                <button (click)="add(1000)" class="button">+ 1.000,00</button>
+                <button (click)="add(10000)" class="button">+ 10.000,00</button>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <div>Saldo disponível</div>
+                    <div class="right">{{ balanceAvailable }}</div>
+                </div>
+                <div class="row row--bold">
+                    <div>Cotas</div>
+                    <div class="right">{{ quota }}</div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <app-button (clickEvent)="pay()" label="Comprar" [fullWidth]="hasMobile" [disabled]="!form.valid || !model"></app-button>
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="loading-detail">
+            <app-loading></app-loading>
+        </div>
+    </div>
+</app-modal-smart>

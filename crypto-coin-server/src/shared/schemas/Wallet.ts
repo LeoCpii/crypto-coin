@@ -43,12 +43,12 @@ export class WalletHelper {
         return model<IWalletDoc>('Wallet', WalletSchema);
     }
 
-    public async updateCoin(id: string, coin: ICoin[]) {
+    public async updateCoin(id: string, coin: ICoin[], account: number) {
         await this.wallet.updateOne(
             { _id: id, },
             {
                 $set: {
-                    account: 0,
+                    account: account,
                     coins: coin
                 },
             },

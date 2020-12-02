@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { CHART, DONUT } from './chart.const';
+import { CHART, DONUT, LINE } from './chart.const';
 
 @Component({
     selector: 'app-chart-page',
@@ -20,6 +20,10 @@ export class ChartPage implements OnInit {
 
     get donut() {
         return DONUT;
+    }
+
+    get line() {
+        return LINE;
     }
 
     ngOnInit() {

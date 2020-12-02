@@ -1,0 +1,26 @@
+@import "includes";
+
+.collapsible {
+  position: relative;
+  padding: 1rem;
+  border-radius: 4px;
+
+  .header {
+    @include between;
+    cursor: pointer;
+
+    .icon {
+      padding: 10px;
+      transform: rotate(0deg);
+      transition: all 0.4s $ease-in-out;
+
+      &--open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .content {
+    overflow: hidden;
+  }
+}

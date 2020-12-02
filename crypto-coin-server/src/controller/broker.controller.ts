@@ -105,7 +105,7 @@ class BrokerController {
     public async marketChart(req: Request, res: Response, next: NextFunction): Promise<Response> {
         try {
             const idCoin = req.params.coinId;
-            const { from, to } = req.body;
+            const { from, to } = req.query;
 
             const CoinGeckoClient = new CoinGecko();
 
