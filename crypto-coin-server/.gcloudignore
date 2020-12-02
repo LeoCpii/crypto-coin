@@ -1,0 +1,5 @@
+# Exclude compiled src files
+src/**/*.ts
+
+# Exclude dependencies
+node_modules/
