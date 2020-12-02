@@ -1,15 +1,15 @@
 export const environment = {
   production: true,
-  urlBaseAPI: 'http://localhost:3000',
+  urlBaseAPI: 'https://crypto-coin-server.rj.r.appspot.com',
   urlBaseMockAPI: 'http://localhost:3000',
   firebaseConfig: {
-    apiKey: "AIzaSyDKK__jffpXeG_pe3SmOC4R8CohvDuhcrk",
-    authDomain: "crypto-coin-72d2e.firebaseapp.com",
-    databaseURL: "https://crypto-coin-72d2e.firebaseio.com",
-    projectId: "crypto-coin-72d2e",
-    storageBucket: "crypto-coin-72d2e.appspot.com",
-    messagingSenderId: "835536678924",
-    appId: "1:835536678924:web:3a5aea055a5a25a3737e29",
-    measurementId: "G-D3W608CV17"
+    apiKey: "AIzaSyCdY4wZeZtGPkTXAzhi7rkLD-ADgsoKMJ0",
+    authDomain: "crypto-coin-tst.firebaseapp.com",
+    databaseURL: "https://crypto-coin-tst.firebaseio.com",
+    projectId: "crypto-coin-tst",
+    storageBucket: "crypto-coin-tst.appspot.com",
+    messagingSenderId: "953563873996",
+    appId: "1:953563873996:web:5d7304372edb18acd8b869",
+    measurementId: "G-Y8JGFSR7PX"
   },
 };
