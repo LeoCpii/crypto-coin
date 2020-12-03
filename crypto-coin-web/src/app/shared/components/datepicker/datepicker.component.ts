@@ -67,7 +67,6 @@ export class DatePickerComponent implements OnInit, AfterViewInit, ControlValueA
     }
 
     public onBlur(value: string) {
-        console.log(value);
         this.touched = true;
         this.validate(value);
         this.onTouched();
