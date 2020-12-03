@@ -16,6 +16,7 @@ export class ButtonComponent implements OnInit {
     @Input() disabled = false;
     @Input() isLoading = false;
     @Input() labelLoading: string;
+    @Input() noMin: boolean;
 
     @Output() clickEvent = new EventEmitter();
 
@@ -33,6 +34,7 @@ export class ButtonComponent implements OnInit {
         const ret = [];
         if (this.fullWidth) { ret.push('full-width'); }
         if (!this.theme) { this.theme = 'primary' }
+        if (this.noMin) { ret.push('no-min') }
 
         return [...ret, this.theme || 'primary'];
     }

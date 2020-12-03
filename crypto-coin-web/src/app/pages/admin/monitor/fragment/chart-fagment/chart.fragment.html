@@ -3,7 +3,7 @@
     <div class="range">
         <div *ngIf="!hasMobile">
             <ng-container *ngFor="let button of buttons; let i = index">
-                <app-button (click)="toggle(i)" [label]="button.label" [theme]="button.state ? 'primary' : 'no-border'">
+                <app-button (click)="toggle(i)" [label]="button.label" [noMin]="true" [theme]="button.state ? 'primary' : 'no-border'">
                 </app-button>
             </ng-container>
         </div>

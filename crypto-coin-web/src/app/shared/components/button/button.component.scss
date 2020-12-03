@@ -32,6 +32,10 @@ button {
         filter: none !important;
     }
 
+    &.no-min {
+        min-width: fit-content;
+    }
+
     &.primary {
         background-color: $primary;
         color: $white;

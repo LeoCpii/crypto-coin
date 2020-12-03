@@ -29,7 +29,7 @@
                 </div>
             </div>
             <!-- MOBILE -->
-            <div *ngIf="hasMobile" class="list">
+            <div *ngIf="hasMobile" class="list-values">
                 <app-carousel>
                     <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
                         <div class="label">Valorização da carteira</div>
@@ -75,9 +75,23 @@
                                         </td>
                                         <td safe-value style="text-align: right;">{{ coin.total.brl | money }}</td>
                                         <td style="text-align: right;">
-                                            <div>
-                                                <button class="button button--sale"(click)="openModal(coin.id, 'modal-sale')">Vender</button>
-                                                <button class="button button--pay"(click)="openModal(coin.id, 'modal-pay')">Comprar</button>
+                                            <div *ngIf="!hasMobile">
+                                                <button class="button button--sale"
+                                                    (click)="openModal(coin.id, 'modal-sale')">Vender</button>
+                                                <button class="button button--pay"
+                                                    (click)="openModal(coin.id, 'modal-pay')">Comprar</button>
+                                            </div>
+
+                                            <div *ngIf="hasMobile">
+                                                <button mat-icon-button [matMenuTriggerFor]="buttons">
+                                                    <mat-icon>more_vert</mat-icon>
+                                                </button>
+                                                <mat-menu #buttons="matMenu">
+                                                    <button mat-menu-item
+                                                        (click)="openModal(coin.id, 'modal-sale')">Vender</button>
+                                                    <button mat-menu-item
+                                                        (click)="openModal(coin.id, 'modal-pay')">Comprar</button>
+                                                </mat-menu>
                                             </div>
                                         </td>
                                     </tr>
