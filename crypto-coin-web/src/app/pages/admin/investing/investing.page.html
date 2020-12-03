@@ -9,9 +9,9 @@
             <app-button (clickEvent)="compare()" label="Comparar" theme="no-border"
                 [disabled]="!(favorites.length > 1)">
             </app-button>
-            <app-button (clickEvent)="saveFavorites()" label="Salvar favoritos" theme="no-border"
+            <!-- <app-button (clickEvent)="saveFavorites()" label="Salvar favoritos" theme="no-border"
                 [disabled]="!hasChange" [isLoading]="loadingFavoriteButtons">
-            </app-button>
+            </app-button> -->
         </ng-container>
         <ng-container *ngIf="hasMobile">
             <button mat-button [matMenuTriggerFor]="menu">

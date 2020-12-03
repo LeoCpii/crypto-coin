@@ -11,7 +11,8 @@
     "deploy": "gcloud app deploy"
   },
   "dependencies": {
-    "@sentry/node": "^5.16.1",
+    "@sentry/node": "^5.28.0",
+    "@sentry/tracing": "^5.28.0",
     "@types/cors": "^2.8.6",
     "axios": "^0.19.2",
     "chai-http": "^4.3.0",
