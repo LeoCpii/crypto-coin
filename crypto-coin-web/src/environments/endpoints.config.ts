@@ -11,6 +11,7 @@ export const endpoints = {
         favoritesUpdate: new Endpoints('/user/favorite', false, '/user/favorite'),
         contribution: new Endpoints(`/user/wallet/contribution`, false, `/user/wallet/contribution`),
         add: new Endpoints('/user/wallet/add', false, '/user/wallet/add'),
+        sale: new Endpoints('/user/wallet/sale', false, '/user/wallet/sale'),
     },
     monitor: {
         wallet: new Endpoints(`/user/wallet`, false, `/user/wallet`),

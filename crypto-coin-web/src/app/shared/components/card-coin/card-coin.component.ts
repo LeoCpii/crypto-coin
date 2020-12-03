@@ -69,7 +69,6 @@ export class CardCoinComponent implements OnInit {
     if (!this.state) { this.addFavorite(); }
 
     this.state = !this.state;
-    console.log()
     this.toggleEvent.emit();
   }
 

@@ -1,4 +1,4 @@
-<app-modal-smart [noFooter]="true" (closeEvent)="reset()" identifier="modal-pay">
+<app-modal-smart [noFooter]="true" (closeEvent)="reset()" [identifier]="identifier">
     <div class="modal">
         <div *ngIf="!loading">
             <div class="header">
@@ -6,14 +6,19 @@
                     <img [src]="data.image">
                 </div>
                 <div>
-                    <div class="name">{{ data.name }}</div>
+                    <div class="name">{{ data.name }} ({{ title }})</div>
                     <div class="symbol">{{ data.symbol }}</div>
                 </div>
             </div>
             <div class="input-container">
-                <div class="sub">Preço atual: <span>
-                        <ng-content></ng-content>
-                    </span>.</div>
+                <div class="input-header">
+                    <div class="sub">Preço atual: <span>
+                            <ng-content></ng-content>
+                        </span>.</div>
+
+                    <button (click)="totalValue()" class="button">Valor total</button>
+                </div>
+
 
                 <input currencyMask [(ngModel)]="model" type="text" [options]="getOptions()"
                     (ngModelChange)="onChange(model)" placeholder="R$ 0,00" [class.invalid]="hasError">
@@ -39,7 +44,8 @@
             </div>
 
             <div class="button-container">
-                <app-button (clickEvent)="pay()" label="Comprar" [fullWidth]="hasMobile" [disabled]="!form.valid || !model"></app-button>
+                <app-button (clickEvent)="pay()" [label]="labelButton" [fullWidth]="hasMobile"
+                    [disabled]="!form.valid || !model"></app-button>
             </div>
         </div>
 

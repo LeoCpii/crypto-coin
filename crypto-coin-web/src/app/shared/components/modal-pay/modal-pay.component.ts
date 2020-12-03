@@ -11,6 +11,7 @@ export interface IModalPay {
   symbol: string;
   price: number;
   account: number;
+  setValue?: number
 }
 
 @Component({
@@ -21,7 +22,7 @@ export interface IModalPay {
 export class ModalPayComponent implements OnInit, OnDestroy {
   @Input() data: IModalPay;
   @Input() loading: boolean;
-
+  @Input() identifier: 'modal-pay' | 'modal-sale' = 'modal-pay';
   @Output() payEvent = new EventEmitter<IPay>();
 
   public hasMobile = false;
@@ -35,6 +36,14 @@ export class ModalPayComponent implements OnInit, OnDestroy {
     private formatter: FormatterService,
     private window: WindowService,
   ) { this.hasMobile = window.hasMobile; }
+
+  get title(): string {
+    return this.hasSale ? 'VENDA' : 'COMPRA';
+  }
+
+  get labelButton(): string {
+    return this.hasSale ? 'Vender' : 'Comprar';
+  }
 
   get balanceAvailable(): string {
     const value = this.data.account - Number(this.model);
@@ -56,6 +65,10 @@ export class ModalPayComponent implements OnInit, OnDestroy {
     return error && Array.isArray(error);
   }
 
+  get hasSale() {
+    return this.data.setValue;
+  }
+
   getOptions() {
     const ret: { prefix?: string; thousands?: string, decimal?: string } = {};
 
@@ -72,6 +85,13 @@ export class ModalPayComponent implements OnInit, OnDestroy {
     this.form.setValue({ money: value });
   }
 
+  public subtraction(value: number) {
+    const current = this.form.get('money').value;
+    const minus = current - value;
+    this.form.setValue({ money: minus });
+    this.model = minus.toString();
+  }
+
   public add(value: number) {
     const current = this.form.get('money').value;
     const sum = current + value;
@@ -79,12 +99,19 @@ export class ModalPayComponent implements OnInit, OnDestroy {
     this.model = sum;
   }
 
-  public pay() {
+  public totalValue() {
+    this.model = this.hasSale ? this.data.setValue.toString() : this.data.account.toString();
+  }
+
+  public pay(): void {
     const params = {
-      id: this.data.id,
-      symbol: this.data.symbol,
-      name: this.data.name,
-      quota: this.quota
+      coin: {
+        id: this.data.id,
+        symbol: this.data.symbol,
+        name: this.data.name,
+        quota: this.quota,
+      },
+      value: Number(this.model)
     }
 
     this.payEvent.emit(params);
@@ -92,7 +119,7 @@ export class ModalPayComponent implements OnInit, OnDestroy {
 
   public reset() {
     setTimeout(() => {
-      this.model = '';  
+      this.model = '';
       this.form.reset();
     }, 200);
   }

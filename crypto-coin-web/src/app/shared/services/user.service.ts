@@ -25,4 +25,9 @@ export class UserService {
         const url = endpoints.user.add.url;
         return await this.ajax.post<{ message: string }>(url, params);
     }
+
+    public async sale(params: IPay) {
+        const url = endpoints.user.sale.url;
+        return await this.ajax.post<{ message: string }>(url, params);
+    }
 }

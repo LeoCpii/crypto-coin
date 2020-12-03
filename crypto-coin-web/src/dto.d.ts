@@ -18,6 +18,7 @@ interface IUser {
 interface IWallet {
     id: string;
     account: number;
+    valuation: number;
     coins: Array<ICoin>
 }
 
@@ -141,8 +142,11 @@ interface IMarketChart {
 }
 
 interface IPay {
-    id: string;
-    symbol: string;
-    name: string;
-    quota: number;
+    coin: {
+        id: string;
+        symbol: string;
+        name: string;
+        quota: number;
+    },
+    value: number;
 }

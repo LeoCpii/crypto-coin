@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, } from '@angular/router';
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 import { MonitorService } from 'src/app/shared/services/monitor.service';
 import { IMonitorPage } from './monitor.page';
 
@@ -17,12 +18,13 @@ export class MonitorResolver implements Resolve<IMonitorPage> {
         private monitor: MonitorService,
     ) { }
 
-    async resolve() {
+    async resolve(): Promise<IMonitorPage> {
         const monitor = await this.monitor.wallet();
 
         let coins = [];
         let agroupDetail: AgroupDetail[] = [];
-        let totalInvested: { usd: any; brl: any; };
+        let marketValue: { usd: number; brl: number; };
+        let valuation = 0;
 
         if (monitor.coins.length) {
             coins = await Promise.all(monitor.coins.map(coin => {
@@ -30,20 +32,23 @@ export class MonitorResolver implements Resolve<IMonitorPage> {
             }));
 
             agroupDetail = this.agroupDetail(coins, monitor.coins);
-            totalInvested = this.totalInvested(agroupDetail);
+            marketValue = this.totalInvested(agroupDetail);
+            valuation = this.valuation(marketValue.brl, monitor.valuation);
         }
+
 
         return {
             id: monitor.id,
             account: monitor.account,
             coins: agroupDetail.length ? agroupDetail : coins,
+            valuation,
             amountInvested: {
-                usd: totalInvested ? totalInvested.usd : 0,
-                brl: totalInvested ? totalInvested.brl : 0,
+                usd: marketValue ? marketValue.usd : 0,
+                brl: marketValue ? marketValue.brl : 0,
             },
             patrimony: {
-                usd: totalInvested ? totalInvested.usd + monitor.account : monitor.account,
-                brl: totalInvested ? totalInvested.brl + monitor.account : monitor.account,
+                usd: marketValue ? marketValue.usd + monitor.account : monitor.account,
+                brl: marketValue ? marketValue.brl + monitor.account : monitor.account,
             },
         };
     }
@@ -72,5 +77,13 @@ export class MonitorResolver implements Resolve<IMonitorPage> {
             usd: sumUsd,
             brl: sumBrl,
         }
+    }
+
+    public valuation(current: number, investValue: number): number {
+        if (!investValue || !current) { return 0; }
+
+        const percent = (current / investValue) - 1;
+
+        return percent;
     }
 }

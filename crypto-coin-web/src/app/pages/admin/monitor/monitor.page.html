@@ -10,6 +10,12 @@
             <!-- DESKTOP -->
             <div *ngIf="!hasMobile" class="grid">
                 <div class="col">
+                    <div class="label">Valorização da carteira</div>
+                    <div safe-value [class.value--negative]="negative" class="value">
+                        {{ valuation | percent: '0.2-2':'pt' }}
+                    </div>
+                </div>
+                <div class="col">
                     <div class="label">Meus Investimentos</div>
                     <div safe-value class="value">{{ amountInvested | money }}</div>
                 </div>
@@ -25,6 +31,12 @@
             <!-- MOBILE -->
             <div *ngIf="hasMobile" class="list">
                 <app-carousel>
+                    <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                        <div class="label">Valorização da carteira</div>
+                        <div safe-value [class.value--negative]="negative" class="value">
+                            {{ valuation | percent: '0.2-2':'pt' }}
+                        </div>
+                    </div>
                     <div class="slide" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
                         <div class="label">Meus Investimentos</div>
                         <div safe-value class="value">{{ amountInvested | money }}</div>
@@ -51,7 +63,7 @@
                         <div class="list">
                             <table [@listAnimation]="data.coins.length">
                                 <tr>
-                                    <th colspan="2">Atualizado em {{date}}</th>
+                                    <th colspan="3">Atualizado em {{date}}</th>
                                 </tr>
                                 <ng-container *ngFor="let coin of data.coins; let i = index">
                                     <tr>
@@ -62,6 +74,12 @@
                                             </div>
                                         </td>
                                         <td safe-value style="text-align: right;">{{ coin.total.brl | money }}</td>
+                                        <td style="text-align: right;">
+                                            <div>
+                                                <button class="button button--sale"(click)="openModal(coin.id, 'modal-sale')">Vender</button>
+                                                <button class="button button--pay"(click)="openModal(coin.id, 'modal-pay')">Comprar</button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </ng-container>
                             </table>
@@ -94,8 +112,8 @@
                     <app-chart-fragment (setLoading)="setLoadingPrice($event)" title="Valor de mercado" prop="prices"
                         [loading]="loadingPrice"></app-chart-fragment>
 
-                    <app-chart-fragment (setLoading)="setLoadingVolume($event)" title="Volume de mercado" prop="total_volumes"
-                        [loading]="loadingVolume"></app-chart-fragment>
+                    <app-chart-fragment (setLoading)="setLoadingVolume($event)" title="Volume de mercado"
+                        prop="total_volumes" [loading]="loadingVolume"></app-chart-fragment>
                 </div>
             </section>
         </div>
@@ -113,3 +131,11 @@
         </div>
     </div>
 </div>
+
+<app-modal-pay (payEvent)="pay($event)" [data]="dataModal" [loading]="modalLoading">
+    {{ dataModal?.price | money }}
+</app-modal-pay>
+
+<app-modal-pay identifier="modal-sale" (payEvent)="sale($event)" [data]="dataModal" [loading]="modalLoading">
+    {{ dataModal?.price | money }}
+</app-modal-pay>

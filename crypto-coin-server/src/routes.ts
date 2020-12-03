@@ -18,6 +18,7 @@ routes.post('/security/create-user', SecurityController.createUser);
 routes.get('/user', Auth.autorize, UserController.user);
 routes.get('/user/wallet', Auth.autorize, UserController.wallet);
 routes.post('/user/wallet/add', Auth.autorize, UserController.addCoin);
+routes.post('/user/wallet/sale', Auth.autorize, UserController.sale);
 routes.post('/user/wallet/contribution', Auth.autorize, UserController.contribution);
 routes.put('/user/favorite', Auth.autorize, UserController.updateFavorite);
 

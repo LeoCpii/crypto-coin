@@ -32,14 +32,27 @@
   .input-container {
     position: relative;
     margin-bottom: 30px;
-    .sub {
-      @include text;
+
+    .input-header {
+      @include between;
       margin-bottom: 30px;
 
-      span {
-        font-weight: $weight-bold;
+      .button {
+        border: none;
+        background: transparent;
+        color: $primary;
+        cursor: pointer;
+      }
+
+      .sub {
+        @include text;
+  
+        span {
+          font-weight: $weight-bold;
+        }
       }
     }
+
 
     input {
       @include text;

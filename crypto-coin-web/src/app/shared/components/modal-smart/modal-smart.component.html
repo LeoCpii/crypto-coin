@@ -1,4 +1,4 @@
-<ngx-smart-modal [identifier]="identifier" (onOpen)="open()" (onAnyCloseEvent)="close()" [customClass]="getClass()">
+<ngx-smart-modal [identifier]="identifier" (onOpenFinished)="open()" (onAnyCloseEvent)="close()" [customClass]="getClass()">
     <div *ngIf="caption" class="title-modal-smart">
         <h1>{{ caption }}</h1>
     </div>

@@ -22,11 +22,13 @@ export class ModalSmartComponent implements OnInit {
 
     @Output() agreeClick = new EventEmitter();
     @Output() closeEvent = new EventEmitter();
+    @Output() openEvent = new EventEmitter();
 
     constructor(private modal: ModalService) {}
 
     public open() {
         this.modal.state.emit(true);
+        this.openEvent.emit();
     }
 
     public close() {

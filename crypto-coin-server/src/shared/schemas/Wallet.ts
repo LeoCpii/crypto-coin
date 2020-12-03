@@ -2,6 +2,7 @@ import { Schema, model, Document, Model } from 'mongoose';
 
 export interface IWallet {
     account: number;
+    valuation: number;
     coins: ICoin[]
 };
 
@@ -31,6 +32,10 @@ const WalletSchema = new Schema({
         }],
         default: [],
         _id: false
+    },
+    valuation: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true
@@ -43,13 +48,14 @@ export class WalletHelper {
         return model<IWalletDoc>('Wallet', WalletSchema);
     }
 
-    public async updateCoin(id: string, coin: ICoin[], account: number) {
+    public async updateCoin(id: string, coin: ICoin[], account: number, valuation: number) {
         await this.wallet.updateOne(
             { _id: id, },
             {
                 $set: {
                     account: account,
-                    coins: coin
+                    coins: coin,
+                    valuation
                 },
             },
             { upsert: true }

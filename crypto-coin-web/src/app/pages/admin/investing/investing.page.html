@@ -4,7 +4,6 @@
     <app-filter [buttons]="buttons" [data]="data" propSearch="name" (filter)="filter($event)" (clean)="clean()">
     </app-filter>
 
-
     <div class="button-change-container">
         <ng-container *ngIf="!hasMobile">
             <app-button (clickEvent)="compare()" label="Comparar" theme="no-border"
@@ -27,7 +26,6 @@
                 </button>
             </mat-menu>
         </ng-container>
-
     </div>
 
     <ng-container *ngIf="loading">
@@ -38,7 +36,18 @@
         </div>
     </ng-container>
 
-    <ng-container *ngIf="!loading">
+    <ng-container *ngIf="hasEmpty && !loading">
+        <div class="empty-container">
+            <div class="content">
+                <div class="empty-container-icon">
+                    <app-svg svg="ghost" size="responsive"></app-svg>
+                </div>
+                <h2>Nenhum item corresponde a essa busca</h2>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!hasEmpty &&!loading">
         <div class="list" [@listAnimation]="data.length">
             <ng-container *ngFor="let coin of filtered">
                 <app-card-coin [data]="coin" (payEvent)="openModalPay($event)" (toggleEvent)="toggle($event)">

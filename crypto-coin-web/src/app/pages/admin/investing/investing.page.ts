@@ -38,6 +38,8 @@ export class InvestingPage implements OnInit, OnDestroy {
     public chartCompare: IApexChart;
     public account: number;
 
+    public timer: NodeJS.Timeout;
+
     constructor(
         private broker: BrokerService,
         private local: LocalStorageService,
@@ -54,6 +56,10 @@ export class InvestingPage implements OnInit, OnDestroy {
 
     get buttons(): IButtonFilter[] {
         return BUTTONS;
+    }
+
+    get hasEmpty(): boolean {
+        return !this.filtered.length;
     }
 
     private openModal(): void {
@@ -107,21 +113,15 @@ export class InvestingPage implements OnInit, OnDestroy {
 
     public toggle() {
         this.hasChange = true;
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            this.saveFavorites();
+        }, 500);
     }
 
     public async saveFavorites() {
-        this.loadingFavoriteButtons = true
         this.user.updateFavorite(this.favorites)
-            .then(response => {
-                this.snackBar.open(response.message, '', {
-                    duration: 2000,
-                    horizontalPosition: 'center',
-                    verticalPosition: 'top'
-                });
-
-                this.hasChange = false;
-            })
-            .finally(() => setTimeout(() => this.loadingFavoriteButtons = false, 500));
+            .then(() => this.hasChange = false)
     }
 
     public pay(data: IPay) {
