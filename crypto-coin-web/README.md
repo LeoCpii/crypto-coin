@@ -8,7 +8,7 @@ Após clonar o repositório caso ainda não tenha o `Angular CLI` execute o coma
 npm install -g @angular/cli
 ```
 
-Em seguida entre na pasta do projeto `B2W-Pokestore-WEB` e instale as dependências.
+Em seguida entre na pasta do projeto `crypto-coin-web` e instale as dependências.
 
 ```sh
 npm install
