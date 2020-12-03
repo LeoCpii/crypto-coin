@@ -31,7 +31,7 @@ Foi desenvolvido utilizando `Angular10`, `Typescript` e `SCSS`. Para hospedagem 
 ![Google Cloud](https://img.shields.io/badge/-Google%20Cloud-333333?style=flat&logo=google-cloud)
 
 Foi desenvolvida utilizando `Nodejs` e `express`. Para hospedagem utilizei o servico `App Engine` da `Google Cloud`.
-> - Todos os endpoints criados na API estão presentes nesta collection do Postman: <a href="https://documenter.getpostman.com/view/3890930/T1Ds8vJj?version=latest#55c1fc3a-2eb5-4843-baa7-ca44cb4bb4bb" target="_blank">Crypto Coin API</a>.
+> - Todos os endpoints criados na API estão presentes nesta collection do Postman: <a href="https://cloudy-crater-9606-1.postman.co/workspace/Crypto-Coin~0a4b39b3-8541-42c0-9329-15e28e3848b8/request/3890930-7749d16a-b614-4f62-978d-776ae1dd4a02" target="_blank">Crypto Coin API</a>.
 > - Selecione a variável de ambiente `Crypto Coin`.
 
 :heavy_check_mark: **Funcionalidades implementadas**
