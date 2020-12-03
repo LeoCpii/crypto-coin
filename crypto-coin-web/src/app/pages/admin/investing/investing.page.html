@@ -5,24 +5,12 @@
     </app-filter>
 
     <div class="button-change-container">
-        <ng-container *ngIf="!hasMobile">
-            <app-button (clickEvent)="compare()" label="Comparar" theme="no-border"
-                [disabled]="!(favorites.length > 1)">
-            </app-button>
-            <!-- <app-button (clickEvent)="saveFavorites()" label="Salvar favoritos" theme="no-border"
+        <app-button (clickEvent)="compare()" label="Comparar" [theme]=" hasMobile ? 'outline': 'no-border'"
+            [disabled]="!(favorites.length > 1)" [fullWidth]="hasMobile">
+        </app-button>
+        <!-- <app-button (clickEvent)="saveFavorites()" label="Salvar favoritos" theme="no-border"
                 [disabled]="!hasChange" [isLoading]="loadingFavoriteButtons">
             </app-button> -->
-        </ng-container>
-        <ng-container *ngIf="hasMobile">
-            <button mat-button [matMenuTriggerFor]="menu">
-                Opções
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="compare()">
-                    <span>Comparar</span>
-                </button>
-            </mat-menu>
-        </ng-container>
     </div>
 
     <ng-container *ngIf="loading">

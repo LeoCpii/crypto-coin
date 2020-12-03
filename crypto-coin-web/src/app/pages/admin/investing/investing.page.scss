@@ -56,8 +56,8 @@
         @include end;
         margin-bottom: 30px;
 
-        @include for-large-tablet {
-            @include between;
+        @include for-mobile {
+            display: block;
         }
     }
 
