@@ -10,6 +10,10 @@ Este projeto foi desenvolvido para treinar meus conhecimentos em desenvolvimento
 
 Repositório dividido em 2 projetos <a href="https://github.com/LeoCpii/crypto-coin/tree/master/crypto-coin-web" target="_blank">WEB</a> e <a href="https://github.com/LeoCpii/crypto-coin/tree/master/crypto-coin-server" target="_blank">API</a>.
 
+:bookmark_tabs: **Styleguide**
+
+Os componentes utilizados na aplicação estao presentes no <a href="https://crypto-coin-tst.web.app/styleguide/typography" target="_blank">Styleguide.</a>
+
 :art: **Prototipação**
 ![Angular](https://img.shields.io/badge/-Figma-333333?style=flat&logo=figma)
 
