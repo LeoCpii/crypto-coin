@@ -1,6 +1,6 @@
-export const COLORS = ['#00A868', '#FDD835', '#20252A', '#8E24AA', '#D81B60', '#34465d', '#3b5999', '#ff3300'];
+export const COLORS_CHART = ['#00A868', '#FDD835', '#20252A', '#8E24AA', '#D81B60', '#F9A825', '#3b5999', '#F06292'];
 
-export const COLORS_REVERSE = () => {
-    const colors = COLORS.map((item: string) => item);
+export const COLORS_CHART_REVERSE = () => {
+    const colors = COLORS_CHART.map((item: string) => item);
     return colors.reverse();
 };

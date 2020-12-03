@@ -30,50 +30,54 @@
             margin-left: 15px;
         }
 
-        .color {
-            padding: 20px;
-            border-radius: 50px;
-            width: fit-content;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.1);
-
-            &--primary {
-                background-color: $primary;
-            }
-
-            &--white {
-                background-color: $white;
-            }
-
-            &--off-white {
-                background-color: $off-white;
-            }
-
-            &--green {
-                background-color: $green;
-            }
-
-            &--red {
-                background-color: $red;
-            }
-
-            &--yellow {
-                background-color: $yellow;
-            }
-
-            &--blue {
-                background-color: $blue;
-            }
-
-            &--grey {
-                background-color: $grey;
-            }
-        }
-
         .hex {
             font-size: 12px;
             color: $grey;
             font-style: italic;
             text-align: right;
         }
+    }
+
+    .color {
+        padding: 20px;
+        border-radius: 50px;
+        width: fit-content;
+        border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+
+        &--primary {
+            background-color: $primary;
+        }
+
+        &--white {
+            background-color: $white;
+        }
+
+        &--off-white {
+            background-color: $off-white;
+        }
+
+        &--green {
+            background-color: $green;
+        }
+
+        &--red {
+            background-color: $red;
+        }
+
+        &--yellow {
+            background-color: $yellow;
+        }
+
+        &--blue {
+            background-color: $blue;
+        }
+
+        &--grey {
+            background-color: $grey;
+        }
+    }
+
+    .container-color-chart {
+        @include start;
     }
 }

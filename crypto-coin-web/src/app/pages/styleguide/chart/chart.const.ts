@@ -1,5 +1,5 @@
 import { IApexChart } from 'src/app/shared/components/chart/chart.component';
-import { COLORS } from 'src/app/shared/constants/colors.const';
+import { COLORS_CHART } from 'src/app/shared/constants/colors.const';
 
 export const CHART = {
     series: [{
@@ -70,7 +70,7 @@ export const DONUT: IApexChart = {
             }
         }
     ],
-    colors: COLORS
+    colors: COLORS_CHART
 };
 
 export const LINE: IApexChart = {
@@ -120,5 +120,5 @@ export const LINE: IApexChart = {
             'Sep'
         ]
     },
-    colors: COLORS
+    colors: COLORS_CHART
 };

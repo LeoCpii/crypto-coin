@@ -1,10 +1,10 @@
 import { IApexChart } from 'src/app/shared/components/chart/chart.component';
-import { COLORS } from 'src/app/shared/constants/colors.const';
+import { COLORS_CHART } from 'src/app/shared/constants/colors.const';
 import { FormatterService } from './../../../shared/services/formatter.service';
 import * as moment from 'moment';
 
 export const AREA = (serie, name: string): IApexChart => ({
-    colors: COLORS,
+    colors: COLORS_CHART,
     series: [
         {
             name,

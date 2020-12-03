@@ -1,12 +1,12 @@
 import { IApexChart } from 'src/app/shared/components/chart/chart.component';
-import { COLORS } from 'src/app/shared/constants/colors.const';
+import { COLORS_CHART } from 'src/app/shared/constants/colors.const';
 import { FormatterService } from './../../../shared/services/formatter.service';
 import * as moment from 'moment';
 import { IButtonFilter } from 'src/app/shared/components/filter/filter.component';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 
 export const AREA_COMPARE = (series): IApexChart => ({
-    colors: COLORS,
+    colors: COLORS_CHART,
     series,
     chart: {
         type: 'area',

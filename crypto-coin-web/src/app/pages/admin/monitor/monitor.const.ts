@@ -1,15 +1,14 @@
 import { IApexChart } from 'src/app/shared/components/chart/chart.component';
-import { COLORS } from 'src/app/shared/constants/colors.const';
 import { FormatterService } from './../../../shared/services/formatter.service';
 import * as moment from 'moment';
-import { COLORS_REVERSE } from '../../../shared/constants/colors.const';
+import { COLORS_CHART_REVERSE, COLORS_CHART } from '../../../shared/constants/colors.const';
 
 export const CHART = (serie: Array<number>, labels: string[]): IApexChart => ({
     series: serie,
     chart: {
         type: "donut",
     },
-    colors: COLORS,
+    colors: COLORS_CHART,
     labels: labels,
     dataLabels: {
         enabled: false
@@ -41,7 +40,7 @@ export const ELEMENT_DATA = [
 ];
 
 export const AREA_FAVORITES = (series): IApexChart => ({
-    colors: COLORS_REVERSE(),
+    colors: COLORS_CHART_REVERSE(),
     series,
     chart: {
         type: 'area',

@@ -12,6 +12,16 @@
                     </div>
                 </ng-container>
             </div>
+
+            <div *ngIf="show" [@listAnimation]="color_chart.length">
+                <div class="container-color-chart">
+                    <ng-container *ngFor="let color of color_chart">
+                        <div (click)="clip(color)">
+                            <div class="color" [ngStyle]="{'background': color}"></div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
         </div>
     </div>
 </div>

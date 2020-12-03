@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { ToastyService } from 'src/app/shared/components/toasty/toasty.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
+import { COLORS_CHART } from '../../../shared/constants/colors.const';
 import { COLORS, IColors } from './color.const';
 
 @Component({
@@ -21,6 +22,10 @@ export class ColorPage implements OnInit {
 
     public get colors(): IColors[] {
         return COLORS;
+    }
+
+    public get color_chart() {
+        return COLORS_CHART;
     }
 
     public getClass(name: string): string {

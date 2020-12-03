@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { COLORS } from 'src/app/shared/constants/colors.const';
+import { COLORS_CHART } from 'src/app/shared/constants/colors.const';
 import { SafeValueService } from 'src/app/shared/services/safe-value.service';
 import { CHART } from './monitor.const';
 import { AgroupDetail } from './monitor.resolver';
@@ -110,7 +110,7 @@ export class MonitorPage implements OnInit, OnDestroy {
     }
 
     get colors() {
-        return COLORS;
+        return COLORS_CHART;
     }
 
     get date() {

@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { COLORS } from 'src/app/shared/constants/colors.const';
-import { SafeValueService } from 'src/app/shared/services/safe-value.service';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';;
 import { IApexChart } from 'src/app/shared/components/chart/chart.component';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { BrokerService } from 'src/app/shared/services/broker.service';
