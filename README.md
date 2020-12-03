@@ -1,4 +1,4 @@
-# Crypto Coin
+![Logo](https://imgur.com/eL4XbHi.png)
 
 > - Projeto de estudos de Front-end e Back-end
 
