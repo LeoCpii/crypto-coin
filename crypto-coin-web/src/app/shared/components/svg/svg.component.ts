@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-type IValidSVGTypes = 'chevron-down' | 'filter' | 'ghost' | 'wallet';
+type IValidSVGTypes = 'chevron-down' | 'filter' | 'ghost' | 'wallet' | '404' | '500';
 type IValidSizeTypes = 'tiny' | 'small' | 'medium' | 'large' | 'x-large';
 export type IValidColorTypes = 'primary' | 'light';
 

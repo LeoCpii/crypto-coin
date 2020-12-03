@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressRouterModule } from 'ngx-progressbar/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AngularFireModule } from "@angular/fire";
@@ -16,14 +16,12 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
 import * as moment from 'moment';
-import { CurrentUserService } from './shared/services/current-user.service';
+import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 
 moment.locale('pt-BR');
 registerLocaleData(localePt, 'pt');
 
-const MODULES = [
-  SharedModule,
-];
+const MODULES = [SharedModule];
 
 @NgModule({
   declarations: [
@@ -39,10 +37,11 @@ const MODULES = [
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ...MODULES
-  ], 
+  ],
   providers: [
     FirebaseAuthService,
     { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

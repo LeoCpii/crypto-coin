@@ -18,11 +18,8 @@
                 Opções
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item (clickEvent)="compare()">
+                <button mat-menu-item (click)="compare()">
                     <span>Comparar</span>
-                </button>
-                <button mat-menu-item (clickEvent)="saveFavorites()" [disabled]="!hasChange">
-                    <span>Salvar favoritos</span>
                 </button>
             </mat-menu>
         </ng-container>

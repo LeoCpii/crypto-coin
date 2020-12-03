@@ -11,6 +11,7 @@ import { BrokerService } from './services/broker.service';
 import { UserService } from './services/user.service';
 
 // Guard
+import { LoggedGuard } from './guards/logged.guard';
 
 // Directive
 import { SafeValueDirective } from './directives/safe-value.directive';
@@ -22,7 +23,7 @@ const SERVICES = [SecurityService, MonitorService, BrokerService, UserService];
 
 const LIBS = [JWT];
 
-const GUARDS = [];
+const GUARDS = [LoggedGuard];
 
 const DIRECTIVES = [SafeValueDirective, ResizeDirective];
 

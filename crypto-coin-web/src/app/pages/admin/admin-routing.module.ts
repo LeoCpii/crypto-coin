@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoggedGuard } from 'src/app/shared/guards/logged.guard';
 import { AdminPage } from './admin.page';
 import { AdminResolver } from './admin.resolver';
 import { AportPage } from './aport/aport.page';
@@ -14,6 +15,7 @@ const routes: Routes = [
     path: '',
     component: AdminPage,
     resolve: { data: AdminResolver },
+    canActivate: [LoggedGuard],
     children: [
       {
         path: '',

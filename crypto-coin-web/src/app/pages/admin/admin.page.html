@@ -33,11 +33,6 @@
                     <app-avatar [matMenuTriggerFor]="menu" size="small" [user]="data.name">
                     </app-avatar>
                     <mat-menu #menu="matMenu" xPosition="before">
-                        <button mat-menu-item>
-                            <mat-icon>settings</mat-icon>
-                            <span>Meus dados</span>
-                        </button>
-
                         <button (click)="logout()" mat-menu-item>
                             <mat-icon>exit_to_app</mat-icon>
                             <span>Sair</span>
