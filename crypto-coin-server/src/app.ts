@@ -8,6 +8,7 @@ import { Utils } from './shared/lib/utils.lib';
 import databaseServer from './database/index';
 import dotenv from 'dotenv';
 import { Firebase } from './shared/lib/firebase.lib';
+import newrelic from 'newrelic';
 
 class App {
     public express: express.Application;
@@ -23,6 +24,9 @@ class App {
         this.database();
         this.routes();
         this.handler();
+
+        newrelic.addCustomAttribute('teste', 'Um evento novo aqui')
+        newrelic.recordCustomEvent('#TESTE#', { teste: 'teste' })
     }
 
     private sentry() {
